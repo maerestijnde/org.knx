@@ -526,6 +526,21 @@
 				<select id="hp_hc1_day_temp_setpoint_ga_dropdown" class="knx-dropdown right"></select>
 				<input id="hp_hc1_day_temp_setpoint_address" type="text" class="knx-text" placeholder="e.g. 11/1/65" value="11/1/65" />
 			</div>
+			<h3>DHW Control</h3>
+			<div class="knx-entry">
+				<label for="hp_dhw_mode_address" class="left">DHW Operating Mode:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="hp_dhw_mode_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="hp_dhw_mode_address" type="text" class="knx-text" placeholder="e.g. 11/2/28" value="11/2/28" />
+			</div>
+			<div class="knx-entry">
+				<label for="hp_dhw_target_temp_address" class="left">DHW Target Temperature:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="hp_dhw_target_temp_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="hp_dhw_target_temp_address" type="text" class="knx-text" placeholder="e.g. 11/2/31" value="11/2/31" />
+			</div>
 			<h3>Temperature Sensors</h3>
 			<div class="knx-entry">
 				<label for="hp_temp_outside_address" class="left">Outside Temperature:</label>
@@ -967,6 +982,8 @@
           device.name = 'KNX Heatpump';
           device.settings = {
             'ga_hc1_day_temp_setpoint': $('#hp_hc1_day_temp_setpoint_address').val(),
+            'ga_dhw_mode': $('#hp_dhw_mode_address').val(),
+            'ga_dhw_target_temp': $('#hp_dhw_target_temp_address').val(),
             'ga_temperature_outside': $('#hp_temp_outside_address').val(),
             'ga_temperature_hc1_flow': $('#hp_temp_hc1_flow_address').val(),
             'ga_temperature_dhw': $('#hp_temp_dhw_address').val(),

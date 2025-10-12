@@ -12,6 +12,10 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
 
     // Register capability listener for target temperature changes
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
+    
+    // Register capability listeners for DHW control
+    this.registerCapabilityListener('onoff.dhw_mode', this.onCapabilityDHWMode.bind(this));
+    this.registerCapabilityListener('target_temperature.dhw', this.onCapabilityDHWTargetTemperature.bind(this));
   }
 
   /**
@@ -50,6 +54,75 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
   }
 
   /**
+   * Handle DHW mode changes from Homey UI (On/Off)
+   */
+  onCapabilityDHWMode(value) {
+    if (!this.knxInterface || !this.settings.ga_dhw_mode) {
+      return null;
+    }
+    
+    this.log(`🚿 Setting DHW mode to: ${value ? 'ON' : 'OFF'}`);
+    
+    const buffer = DatapointTypeParser.encodeDpt1(value);
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dhw_mode, buffer, 'DPT1')
+      // Reread the DHW mode after a timeout to prevent mismatch
+      .then(() => this.homey.setTimeout(this.getDHWMode.bind(this), 500))
+      .catch((knxerror) => {
+        this.error(knxerror);
+        throw new Error('Failed to set DHW mode');
+      });
+  }
+
+  /**
+   * Read current DHW mode from KNX
+   */
+  getDHWMode() {
+    const settings = this.getSettings();
+    if (!this.knxInterface || !settings.ga_dhw_mode) {
+      return;
+    }
+    this.knxInterface.readKNXGroupAddress(settings.ga_dhw_mode)
+      .catch(this.error);
+  }
+
+  /**
+   * Handle DHW target temperature changes from Homey UI
+   */
+  onCapabilityDHWTargetTemperature(value) {
+    if (!this.knxInterface || !this.settings.ga_dhw_target_temp) {
+      return null;
+    }
+    
+    // Validate temperature range (35-65°C as per ISE Vaillant documentation)
+    if (value < 35 || value > 65) {
+      this.error(`DHW temperature ${value}°C is out of range (35-65°C)`);
+      throw new Error('DHW temperature must be between 35°C and 65°C');
+    }
+
+    this.log(`🚿 Setting DHW target temperature to: ${value}°C`);
+
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dhw_target_temp, value, 'DPT9.1')
+      // Reread the DHW target temperature after a timeout
+      .then(() => this.homey.setTimeout(this.getDHWTargetTemperature.bind(this), 500))
+      .catch((knxerror) => {
+        this.error(knxerror);
+        throw new Error('Failed to set DHW target temperature');
+      });
+  }
+
+  /**
+   * Read current DHW target temperature from KNX
+   */
+  getDHWTargetTemperature() {
+    const settings = this.getSettings();
+    if (!this.knxInterface || !settings.ga_dhw_target_temp) {
+      return;
+    }
+    this.knxInterface.readKNXGroupAddress(settings.ga_dhw_target_temp)
+      .catch(this.error);
+  }
+
+  /**
    * Called when KNX connection status changes
    */
   onKNXConnection(connectionStatus) {
@@ -61,6 +134,8 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
 
     // Read initial values from KNX bus
     this.getTargetTemperature();
+    this.getDHWMode();
+    this.getDHWTargetTemperature();
   }
 
   /**
@@ -76,6 +151,24 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
       const value = DatapointTypeParser.dpt9(data);
       this.setCapabilityValue('target_temperature', value).catch(this.error);
       this.log(`✅ Target Temperature updated: ${value}°C`);
+      return;
+    }
+
+    // Handle DHW Mode (On/Off)
+    if (groupaddress === settings.ga_dhw_mode) {
+      this.log('🚿 Processing DHW Mode event');
+      const value = DatapointTypeParser.bitFormat(data);
+      this.setCapabilityValue('onoff.dhw_mode', value).catch(this.error);
+      this.log(`✅ DHW Mode updated: ${value ? 'ON' : 'OFF'}`);
+      return;
+    }
+
+    // Handle DHW Target Temperature
+    if (groupaddress === settings.ga_dhw_target_temp) {
+      this.log('🚿 Processing DHW Target Temperature event');
+      const value = DatapointTypeParser.dpt9(data);
+      this.setCapabilityValue('target_temperature.dhw', value).catch(this.error);
+      this.log(`✅ DHW Target Temperature updated: ${value}°C`);
       return;
     }
 
@@ -192,29 +285,31 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
     // Handle Power: Environmental Yield
     if (groupaddress === settings.ga_power_environmental_yield) {
       this.log('🌱 Processing Environmental Yield event');
-      const value = DatapointTypeParser.dpt9(data);
+      const value = DatapointTypeParser.dpt13(data);
       this.setCapabilityValue('measure_power.environmental_yield', value).catch(this.error);
-      this.log(`✅ Environmental Yield updated: ${value} W`);
+      this.log(`✅ Environmental Yield updated: ${value} Wh`);
       return;
     }
 
     // Handle Energy: DHW Total Consumption
     if (groupaddress === settings.ga_energy_dhw_consumption) {
       this.log('📊 Processing DHW Total Energy Consumption event');
-      const value = DatapointTypeParser.dpt9(data);
-      // Assuming the value is in kWh
-      this.setCapabilityValue('meter_power.dhw_consumption', value).catch(this.error);
-      this.log(`✅ DHW Total Energy Consumption updated: ${value} kWh`);
+      const value = DatapointTypeParser.dpt13(data);
+      // Convert Wh to kWh
+      const valueInKwh = value / 1000;
+      this.setCapabilityValue('meter_power.dhw_consumption', valueInKwh).catch(this.error);
+      this.log(`✅ DHW Total Energy Consumption updated: ${valueInKwh} kWh (${value} Wh)`);
       return;
     }
 
     // Handle Energy: Heating Total Consumption
     if (groupaddress === settings.ga_energy_heating_consumption) {
       this.log('📊 Processing Heating Total Energy Consumption event');
-      const value = DatapointTypeParser.dpt9(data);
-      // Assuming the value is in kWh
-      this.setCapabilityValue('meter_power.heating_consumption', value).catch(this.error);
-      this.log(`✅ Heating Total Energy Consumption updated: ${value} kWh`);
+      const value = DatapointTypeParser.dpt13(data);
+      // Convert Wh to kWh
+      const valueInKwh = value / 1000;
+      this.setCapabilityValue('meter_power.heating_consumption', valueInKwh).catch(this.error);
+      this.log(`✅ Heating Total Energy Consumption updated: ${valueInKwh} kWh (${value} Wh)`);
       return;
     }
 
@@ -232,6 +327,16 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
     if (settings.ga_hc1_day_temp_setpoint) {
       this.knxInterface.addKNXEventListener(settings.ga_hc1_day_temp_setpoint, this.KNXEventHandler);
       this.log('✅ Subscribed to HC1 Day Temperature Setpoint:', settings.ga_hc1_day_temp_setpoint);
+    }
+
+    // Subscribe to DHW control
+    if (settings.ga_dhw_mode) {
+      this.knxInterface.addKNXEventListener(settings.ga_dhw_mode, this.KNXEventHandler);
+      this.log('✅ Subscribed to DHW Mode:', settings.ga_dhw_mode);
+    }
+    if (settings.ga_dhw_target_temp) {
+      this.knxInterface.addKNXEventListener(settings.ga_dhw_target_temp, this.KNXEventHandler);
+      this.log('✅ Subscribed to DHW Target Temperature:', settings.ga_dhw_target_temp);
     }
 
     // Subscribe to temperature sensors

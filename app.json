@@ -1587,6 +1587,608 @@
         ]
       },
       {
+        "id": "button1_changed",
+        "title": {
+          "en": "Button 1 turned on or off",
+          "nl": "Knop 1 aan of uit gezet",
+          "da": "Knap 1 tændt eller slukket",
+          "de": "Taste 1 ein- oder ausgeschaltet",
+          "es": "Botón 1 encendido o apagado",
+          "fr": "Bouton 1 allumé ou éteint",
+          "it": "Pulsante 1 acceso o spento",
+          "no": "Knapp 1 slått på eller av",
+          "sv": "Knapp 1 slås på eller av",
+          "pl": "Przycisk 1 włączony lub wyłączony",
+          "ru": "Кнопка 1 включена или выключена",
+          "ko": "버튼 1 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 1 turned on or off",
+          "nl": "Knop 1 aan of uit gezet",
+          "da": "Knap 1 tændt eller slukket",
+          "de": "Taste 1 ein- oder ausgeschaltet",
+          "es": "Botón 1 encendido o apagado",
+          "fr": "Bouton 1 allumé ou éteint",
+          "it": "Pulsante 1 acceso o spento",
+          "no": "Knapp 1 slått på eller av",
+          "sv": "Knapp 1 slås på eller av",
+          "pl": "Przycisk 1 włączony lub wyłączony",
+          "ru": "Кнопка 1 включена или выключена",
+          "ko": "버튼 1 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 1 is changed from on/off to off/on",
+          "nl": "Wanneer knop 1 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 1 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 1 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 1 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 1 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 1 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 1 endres fra på/av til av/på",
+          "sv": "När knapp 1 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 1 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 1 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 1이 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 1",
+              "nl": "De huidige status van knop 1",
+              "da": "Knap 1's aktuelle status",
+              "de": "Der aktuelle Status von Taste 1",
+              "es": "El estado actual del botón 1",
+              "fr": "L'état actuel du bouton 1",
+              "it": "Lo stato attuale del pulsante 1",
+              "no": "Gjeldende status for knapp 1",
+              "sv": "Aktuell status för knapp 1",
+              "pl": "Aktualny stan przycisku 1",
+              "ru": "Текущий статус кнопки 1",
+              "ko": "현재 버튼 1 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
+        "id": "button2_changed",
+        "title": {
+          "en": "Button 2 turned on or off",
+          "nl": "Knop 2 aan of uit gezet",
+          "da": "Knap 2 tændt eller slukket",
+          "de": "Taste 2 ein- oder ausgeschaltet",
+          "es": "Botón 2 encendido o apagado",
+          "fr": "Bouton 2 allumé ou éteint",
+          "it": "Pulsante 2 acceso o spento",
+          "no": "Knapp 2 slått på eller av",
+          "sv": "Knapp 2 slås på eller av",
+          "pl": "Przycisk 2 włączony lub wyłączony",
+          "ru": "Кнопка 2 включена или выключена",
+          "ko": "버튼 2 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 2 turned on or off",
+          "nl": "Knop 2 aan of uit gezet",
+          "da": "Knap 2 tændt eller slukket",
+          "de": "Taste 2 ein- oder ausgeschaltet",
+          "es": "Botón 2 encendido o apagado",
+          "fr": "Bouton 2 allumé ou éteint",
+          "it": "Pulsante 2 acceso o spento",
+          "no": "Knapp 2 slått på eller av",
+          "sv": "Knapp 2 slås på eller av",
+          "pl": "Przycisk 2 włączony lub wyłączony",
+          "ru": "Кнопка 2 включена или выключена",
+          "ko": "버튼 2 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 2 is changed from on/off to off/on",
+          "nl": "Wanneer knop 2 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 2 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 2 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 2 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 2 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 2 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 2 endres fra på/av til av/på",
+          "sv": "När knapp 2 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 2 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 2 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 2가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 2",
+              "nl": "De huidige status van knop 2",
+              "da": "Knap 2's aktuelle status",
+              "de": "Der aktuelle Status von Taste 2",
+              "es": "El estado actual del botón 2",
+              "fr": "L'état actuel du bouton 2",
+              "it": "Lo stato attuale del pulsante 2",
+              "no": "Gjeldende status for knapp 2",
+              "sv": "Aktuell status för knapp 2",
+              "pl": "Aktualny stan przycisku 2",
+              "ru": "Текущий статус кнопки 2",
+              "ko": "현재 버튼 2 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
+        "id": "button3_changed",
+        "title": {
+          "en": "Button 3 turned on or off",
+          "nl": "Knop 3 aan of uit gezet",
+          "da": "Knap 3 tændt eller slukket",
+          "de": "Taste 3 ein- oder ausgeschaltet",
+          "es": "Botón 3 encendido o apagado",
+          "fr": "Bouton 3 allumé ou éteint",
+          "it": "Pulsante 3 acceso o spento",
+          "no": "Knapp 3 slått på eller av",
+          "sv": "Knapp 3 slås på eller av",
+          "pl": "Przycisk 3 włączony lub wyłączony",
+          "ru": "Кнопка 3 включена или выключена",
+          "ko": "버튼 3 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 3 turned on or off",
+          "nl": "Knop 3 aan of uit gezet",
+          "da": "Knap 3 tændt eller slukket",
+          "de": "Taste 3 ein- oder ausgeschaltet",
+          "es": "Botón 3 encendido o apagado",
+          "fr": "Bouton 3 allumé ou éteint",
+          "it": "Pulsante 3 acceso o spento",
+          "no": "Knapp 3 slått på eller av",
+          "sv": "Knapp 3 slås på eller av",
+          "pl": "Przycisk 3 włączony lub wyłączony",
+          "ru": "Кнопка 3 включена или выключена",
+          "ko": "버튼 3 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 3 is changed from on/off to off/on",
+          "nl": "Wanneer knop 3 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 3 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 3 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 3 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 3 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 3 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 3 endres fra på/av til av/på",
+          "sv": "När knapp 3 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 3 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 3 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 3이 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 3",
+              "nl": "De huidige status van knop 3",
+              "da": "Knap 3's aktuelle status",
+              "de": "Der aktuelle Status von Taste 3",
+              "es": "El estado actual del botón 3",
+              "fr": "L'état actuel du bouton 3",
+              "it": "Lo stato attuale del pulsante 3",
+              "no": "Gjeldende status for knapp 3",
+              "sv": "Aktuell status för knapp 3",
+              "pl": "Aktualny stan przycisku 3",
+              "ru": "Текущий статус кнопки 3",
+              "ko": "현재 버튼 3 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
+        "id": "button4_changed",
+        "title": {
+          "en": "Button 4 turned on or off",
+          "nl": "Knop 4 aan of uit gezet",
+          "da": "Knap 4 tændt eller slukket",
+          "de": "Taste 4 ein- oder ausgeschaltet",
+          "es": "Botón 4 encendido o apagado",
+          "fr": "Bouton 4 allumé ou éteint",
+          "it": "Pulsante 4 acceso o spento",
+          "no": "Knapp 4 slått på eller av",
+          "sv": "Knapp 4 slås på eller av",
+          "pl": "Przycisk 4 włączony lub wyłączony",
+          "ru": "Кнопка 4 включена или выключена",
+          "ko": "버튼 4 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 4 turned on or off",
+          "nl": "Knop 4 aan of uit gezet",
+          "da": "Knap 4 tændt eller slukket",
+          "de": "Taste 4 ein- oder ausgeschaltet",
+          "es": "Botón 4 encendido o apagado",
+          "fr": "Bouton 4 allumé ou éteint",
+          "it": "Pulsante 4 acceso o spento",
+          "no": "Knapp 4 slått på eller av",
+          "sv": "Knapp 4 slås på eller av",
+          "pl": "Przycisk 4 włączony lub wyłączony",
+          "ru": "Кнопка 4 включена или выключена",
+          "ko": "버튼 4 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 4 is changed from on/off to off/on",
+          "nl": "Wanneer knop 4 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 4 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 4 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 4 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 4 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 4 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 4 endres fra på/av til av/på",
+          "sv": "När knapp 4 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 4 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 4 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 4가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 4",
+              "nl": "De huidige status van knop 4",
+              "da": "Knap 4's aktuelle status",
+              "de": "Der aktuelle Status von Taste 4",
+              "es": "El estado actual del botón 4",
+              "fr": "L'état actuel du bouton 4",
+              "it": "Lo stato attuale del pulsante 4",
+              "no": "Gjeldende status for knapp 4",
+              "sv": "Aktuell status för knapp 4",
+              "pl": "Aktualny stan przycisku 4",
+              "ru": "Текущий статус кнопки 4",
+              "ko": "현재 버튼 4 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
+        "id": "button5_changed",
+        "title": {
+          "en": "Button 5 turned on or off",
+          "nl": "Knop 5 aan of uit gezet",
+          "da": "Knap 5 tændt eller slukket",
+          "de": "Taste 5 ein- oder ausgeschaltet",
+          "es": "Botón 5 encendido o apagado",
+          "fr": "Bouton 5 allumé ou éteint",
+          "it": "Pulsante 5 acceso o spento",
+          "no": "Knapp 5 slått på eller av",
+          "sv": "Knapp 5 slås på eller av",
+          "pl": "Przycisk 5 włączony lub wyłączony",
+          "ru": "Кнопка 5 включена или выключена",
+          "ko": "버튼 5 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 5 turned on or off",
+          "nl": "Knop 5 aan of uit gezet",
+          "da": "Knap 5 tændt eller slukket",
+          "de": "Taste 5 ein- oder ausgeschaltet",
+          "es": "Botón 5 encendido o apagado",
+          "fr": "Bouton 5 allumé ou éteint",
+          "it": "Pulsante 5 acceso o spento",
+          "no": "Knapp 5 slått på eller av",
+          "sv": "Knapp 5 slås på eller av",
+          "pl": "Przycisk 5 włączony lub wyłączony",
+          "ru": "Кнопка 5 включена или выключена",
+          "ko": "버튼 5 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 5 is changed from on/off to off/on",
+          "nl": "Wanneer knop 5 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 5 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 5 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 5 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 5 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 5 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 5 endres fra på/av til av/på",
+          "sv": "När knapp 5 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 5 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 5 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 5가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 5",
+              "nl": "De huidige status van knop 5",
+              "da": "Knap 5's aktuelle status",
+              "de": "Der aktuelle Status von Taste 5",
+              "es": "El estado actual del botón 5",
+              "fr": "L'état actuel du bouton 5",
+              "it": "Lo stato attuale del pulsante 5",
+              "no": "Gjeldende status for knapp 5",
+              "sv": "Aktuell status för knapp 5",
+              "pl": "Aktualny stan przycisku 5",
+              "ru": "Текущий статус кнопки 5",
+              "ko": "현재 버튼 5 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
+        "id": "button6_changed",
+        "title": {
+          "en": "Button 6 turned on or off",
+          "nl": "Knop 6 aan of uit gezet",
+          "da": "Knap 6 tændt eller slukket",
+          "de": "Taste 6 ein- oder ausgeschaltet",
+          "es": "Botón 6 encendido o apagado",
+          "fr": "Bouton 6 allumé ou éteint",
+          "it": "Pulsante 6 acceso o spento",
+          "no": "Knapp 6 slått på eller av",
+          "sv": "Knapp 6 slås på eller av",
+          "pl": "Przycisk 6 włączony lub wyłączony",
+          "ru": "Кнопка 6 включена или выключена",
+          "ko": "버튼 6 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 6 turned on or off",
+          "nl": "Knop 6 aan of uit gezet",
+          "da": "Knap 6 tændt eller slukket",
+          "de": "Taste 6 ein- oder ausgeschaltet",
+          "es": "Botón 6 encendido o apagado",
+          "fr": "Bouton 6 allumé ou éteint",
+          "it": "Pulsante 6 acceso o spento",
+          "no": "Knapp 6 slått på eller av",
+          "sv": "Knapp 6 slås på eller av",
+          "pl": "Przycisk 6 włączony lub wyłączony",
+          "ru": "Кнопка 6 включена или выключена",
+          "ko": "버튼 6 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 6 is changed from on/off to off/on",
+          "nl": "Wanneer knop 6 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 6 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 6 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 6 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 6 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 6 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 6 endres fra på/av til av/på",
+          "sv": "När knapp 6 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 6 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 6 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 6이 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 6",
+              "nl": "De huidige status van knop 6",
+              "da": "Knap 6's aktuelle status",
+              "de": "Der aktuelle Status von Taste 6",
+              "es": "El estado actual del botón 6",
+              "fr": "L'état actuel du bouton 6",
+              "it": "Lo stato attuale del pulsante 6",
+              "no": "Gjeldende status for knapp 6",
+              "sv": "Aktuell status för knapp 6",
+              "pl": "Aktualny stan przycisku 6",
+              "ru": "Текущий статус кнопки 6",
+              "ko": "현재 버튼 6 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
+        "id": "room_controller_6btn_temperature_changed",
+        "title": {
+          "en": "Temperature changed",
+          "nl": "Temperatuur veranderd",
+          "da": "Temperatur ændret",
+          "de": "Temperatur geändert",
+          "es": "Temperatura cambiada",
+          "fr": "Température changée",
+          "it": "Temperatura cambiata",
+          "no": "Temperatur endret",
+          "sv": "Temperatur ändrad",
+          "pl": "Temperatura zmieniona",
+          "ru": "Температура изменилась",
+          "ko": "온도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Temperature changed to [[temperature]]°C",
+          "nl": "Temperatuur veranderd naar [[temperature]]°C",
+          "da": "Temperatur ændret til [[temperature]]°C",
+          "de": "Temperatur geändert auf [[temperature]]°C",
+          "es": "Temperatura cambiada a [[temperature]]°C",
+          "fr": "Température changée à [[temperature]]°C",
+          "it": "Temperatura cambiata a [[temperature]]°C",
+          "no": "Temperatur endret til [[temperature]]°C",
+          "sv": "Temperatur ändrad till [[temperature]]°C",
+          "pl": "Temperatura zmieniona na [[temperature]]°C",
+          "ru": "Температура изменилась на [[temperature]]°C",
+          "ko": "온도가 [[temperature]]°C로 변경됨"
+        },
+        "hint": {
+          "en": "When the temperature measurement changes",
+          "nl": "Wanneer de temperatuurmeting verandert",
+          "da": "Når temperaturmålingen ændres",
+          "de": "Wenn sich die Temperaturmessung ändert",
+          "es": "Cuando cambia la medición de temperatura",
+          "fr": "Lorsque la mesure de température change",
+          "it": "Quando cambia la misurazione della temperatura",
+          "no": "Når temperaturmålingen endres",
+          "sv": "När temperaturmätningen ändras",
+          "pl": "Gdy zmienia się pomiar temperatury",
+          "ru": "Когда изменяется измерение температуры",
+          "ko": "온도 측정값이 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "da": "Temperatur",
+              "de": "Temperatur",
+              "es": "Temperatura",
+              "fr": "Température",
+              "it": "Temperatura",
+              "no": "Temperatur",
+              "sv": "Temperatur",
+              "pl": "Temperatura",
+              "ru": "Температура",
+              "ko": "온도"
+            },
+            "example": {
+              "en": "The current temperature in degrees Celsius",
+              "nl": "De huidige temperatuur in graden Celsius",
+              "da": "Den aktuelle temperatur i grader Celsius",
+              "de": "Die aktuelle Temperatur in Grad Celsius",
+              "es": "La temperatura actual en grados Celsius",
+              "fr": "La température actuelle en degrés Celsius",
+              "it": "La temperatura attuale in gradi Celsius",
+              "no": "Den gjeldende temperaturen i grader Celsius",
+              "sv": "Den aktuella temperaturen i grader Celsius",
+              "pl": "Aktualna temperatura w stopniach Celsjusza",
+              "ru": "Текущая температура в градусах Цельсия",
+              "ko": "현재 온도(섭씨)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller_6btn"
+          }
+        ]
+      },
+      {
         "id": "smoke_detected",
         "title": {
           "en": "Smoke detected",
@@ -4364,6 +4966,584 @@
         }
       ],
       "id": "knx_electric_metering"
+    },
+    {
+      "images": {
+        "large": "/drivers/knx_heatpump/assets/images/large.png",
+        "small": "/drivers/knx_heatpump/assets/images/small.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "select_groupaddresses",
+            "prev": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "select_groupaddresses",
+          "options": {
+            "devicetype": "heatpump"
+          },
+          "navigation": {
+            "prev": "select_interface"
+          }
+        }
+      ],
+      "id": "knx_heatpump",
+      "name": {
+        "en": "Heat Pump",
+        "nl": "Warmtepomp"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature.outside",
+        "measure_temperature.hc1_flow",
+        "measure_temperature.dhw",
+        "measure_pressure",
+        "target_temperature",
+        "onoff.dhw_mode",
+        "target_temperature.dhw",
+        "onoff.status_standby",
+        "onoff.status_heating",
+        "onoff.status_cooling",
+        "onoff.status_dhw",
+        "alarm_generic.knx_error",
+        "alarm_generic.heating_error",
+        "measure_power.dhw",
+        "measure_power.heating_generator",
+        "measure_power.environmental_yield",
+        "meter_power.dhw_consumption",
+        "meter_power.heating_consumption"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "title": {
+            "en": "Target Temperature HC1",
+            "nl": "Doeltemperatuur HC1"
+          },
+          "min": 5,
+          "max": 30,
+          "step": 0.5,
+          "decimals": 1,
+          "uiIndicator": true
+        },
+        "measure_temperature.outside": {
+          "title": {
+            "en": "Outside Temperature",
+            "nl": "Buitentemperatuur"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": true
+        },
+        "measure_temperature.hc1_flow": {
+          "title": {
+            "en": "HC1 Flow Temperature",
+            "nl": "HC1 Aanvoer Temperatuur"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "measure_temperature.dhw": {
+          "title": {
+            "en": "DHW Temperature",
+            "nl": "Warmwater Temperatuur"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "measure_pressure": {
+          "title": {
+            "en": "Water Pressure",
+            "nl": "Waterdruk"
+          },
+          "units": {
+            "en": "bar",
+            "nl": "bar"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "onoff.dhw_mode": {
+          "title": {
+            "en": "DHW Mode",
+            "nl": "Warmwater Modus"
+          },
+          "uiComponent": "toggle",
+          "uiQuickAction": true,
+          "getable": true,
+          "setable": true
+        },
+        "target_temperature.dhw": {
+          "title": {
+            "en": "DHW Target Temperature",
+            "nl": "Warmwater Doeltemperatuur"
+          },
+          "min": 35,
+          "max": 65,
+          "step": 1,
+          "decimals": 0,
+          "uiIndicator": false
+        },
+        "onoff.status_standby": {
+          "title": {
+            "en": "Standby Mode",
+            "nl": "Standby Modus"
+          },
+          "uiComponent": "sensor",
+          "uiQuickAction": false,
+          "getable": true,
+          "setable": false
+        },
+        "onoff.status_heating": {
+          "title": {
+            "en": "Heating Active",
+            "nl": "Verwarmen Actief"
+          },
+          "uiComponent": "sensor",
+          "uiQuickAction": false,
+          "getable": true,
+          "setable": false
+        },
+        "onoff.status_cooling": {
+          "title": {
+            "en": "Cooling Active",
+            "nl": "Koelen Actief"
+          },
+          "uiComponent": "sensor",
+          "uiQuickAction": false,
+          "getable": true,
+          "setable": false
+        },
+        "onoff.status_dhw": {
+          "title": {
+            "en": "DHW Active",
+            "nl": "Warmwater Actief"
+          },
+          "uiComponent": "sensor",
+          "uiQuickAction": false,
+          "getable": true,
+          "setable": false
+        },
+        "alarm_generic.knx_error": {
+          "title": {
+            "en": "KNX Gateway Error",
+            "nl": "KNX Gateway Fout"
+          },
+          "uiComponent": "sensor"
+        },
+        "alarm_generic.heating_error": {
+          "title": {
+            "en": "Heating Generator Error",
+            "nl": "Verwarmingsgenerator Fout"
+          },
+          "uiComponent": "sensor"
+        },
+        "measure_power.dhw": {
+          "title": {
+            "en": "DHW Power Consumption",
+            "nl": "Warmwater Stroomverbruik"
+          },
+          "units": {
+            "en": "W",
+            "nl": "W"
+          },
+          "chartType": "stepLine",
+          "decimals": 0,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "measure_power.heating_generator": {
+          "title": {
+            "en": "Heating Generator Power",
+            "nl": "Verwarmingsgenerator Vermogen"
+          },
+          "units": {
+            "en": "W",
+            "nl": "W"
+          },
+          "chartType": "stepLine",
+          "decimals": 0,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "measure_power.environmental_yield": {
+          "title": {
+            "en": "Environmental Yield",
+            "nl": "Milieu Opbrengst"
+          },
+          "units": {
+            "en": "Wh",
+            "nl": "Wh"
+          },
+          "chartType": "stepLine",
+          "decimals": 0,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "meter_power.dhw_consumption": {
+          "title": {
+            "en": "DHW Total Energy",
+            "nl": "Warmwater Totaal Energie"
+          },
+          "units": {
+            "en": "kWh",
+            "nl": "kWh"
+          },
+          "decimals": 2,
+          "insights": true,
+          "uiIndicator": false
+        },
+        "meter_power.heating_consumption": {
+          "title": {
+            "en": "Heating Total Energy",
+            "nl": "Verwarming Totaal Energie"
+          },
+          "units": {
+            "en": "kWh",
+            "nl": "kWh"
+          },
+          "decimals": 2,
+          "insights": true,
+          "uiIndicator": false
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature Control KNX Addresses",
+            "nl": "Temperatuur Regeling KNX Adressen"
+          },
+          "children": [
+            {
+              "id": "ga_hc1_day_temp_setpoint",
+              "type": "text",
+              "label": {
+                "en": "HC1 Day Temperature Setpoint",
+                "nl": "HC1 Dagtemperatuur Setpoint"
+              },
+              "value": "11/1/65",
+              "hint": {
+                "en": "Group address for HC1 day temperature setpoint (e.g., 11/1/65)",
+                "nl": "Groepsadres voor HC1 dagtemperatuur setpoint (bijv. 11/1/65)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "DHW Control KNX Addresses",
+            "nl": "Warmwater Regeling KNX Adressen"
+          },
+          "children": [
+            {
+              "id": "ga_dhw_mode",
+              "type": "text",
+              "label": {
+                "en": "DHW Operating Mode",
+                "nl": "Warmwater Bedrijfsmodus"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for DHW on/off control (e.g., 11/1/70)",
+                "nl": "Groepsadres voor warmwater aan/uit regeling (bijv. 11/1/70)"
+              }
+            },
+            {
+              "id": "ga_dhw_target_temp",
+              "type": "text",
+              "label": {
+                "en": "DHW Target Temperature",
+                "nl": "Warmwater Doeltemperatuur"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for DHW target temperature setpoint (e.g., 11/1/71)",
+                "nl": "Groepsadres voor warmwater doeltemperatuur setpoint (bijv. 11/1/71)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature Sensors KNX Addresses",
+            "nl": "Temperatuur Sensoren KNX Adressen"
+          },
+          "children": [
+            {
+              "id": "ga_temperature_outside",
+              "type": "text",
+              "label": {
+                "en": "Outside Temperature",
+                "nl": "Buitentemperatuur"
+              },
+              "value": "11/2/4",
+              "hint": {
+                "en": "Group address for outside temperature (e.g., 11/2/4)",
+                "nl": "Groepsadres voor buitentemperatuur (bijv. 11/2/4)"
+              }
+            },
+            {
+              "id": "ga_temperature_hc1_flow",
+              "type": "text",
+              "label": {
+                "en": "HC1 Flow Temperature",
+                "nl": "HC1 Aanvoer Temperatuur"
+              },
+              "value": "11/2/15",
+              "hint": {
+                "en": "Group address for HC1 flow temperature (e.g., 11/2/15)",
+                "nl": "Groepsadres voor HC1 aanvoer temperatuur (bijv. 11/2/15)"
+              }
+            },
+            {
+              "id": "ga_temperature_dhw",
+              "type": "text",
+              "label": {
+                "en": "DHW Temperature",
+                "nl": "Warmwater Temperatuur"
+              },
+              "value": "11/2/35",
+              "hint": {
+                "en": "Group address for DHW temperature (e.g., 11/2/35)",
+                "nl": "Groepsadres voor warmwater temperatuur (bijv. 11/2/35)"
+              }
+            },
+            {
+              "id": "ga_pressure_water",
+              "type": "text",
+              "label": {
+                "en": "Water Pressure",
+                "nl": "Waterdruk"
+              },
+              "value": "11/2/9",
+              "hint": {
+                "en": "Group address for water pressure (e.g., 11/2/9)",
+                "nl": "Groepsadres voor waterdruk (bijv. 11/2/9)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Status KNX Addresses",
+            "nl": "Status KNX Adressen"
+          },
+          "children": [
+            {
+              "id": "ga_status_standby",
+              "type": "text",
+              "label": {
+                "en": "System Status Standby",
+                "nl": "Systeem Status Standby"
+              },
+              "value": "11/2/5",
+              "hint": {
+                "en": "Group address for standby status (e.g., 11/2/5)",
+                "nl": "Groepsadres voor standby status (bijv. 11/2/5)"
+              }
+            },
+            {
+              "id": "ga_status_heating",
+              "type": "text",
+              "label": {
+                "en": "System Status Heating",
+                "nl": "Systeem Status Verwarmen"
+              },
+              "value": "11/2/6",
+              "hint": {
+                "en": "Group address for heating status (e.g., 11/2/6)",
+                "nl": "Groepsadres voor verwarmen status (bijv. 11/2/6)"
+              }
+            },
+            {
+              "id": "ga_status_cooling",
+              "type": "text",
+              "label": {
+                "en": "System Status Cooling",
+                "nl": "Systeem Status Koelen"
+              },
+              "value": "11/2/7",
+              "hint": {
+                "en": "Group address for cooling status (e.g., 11/2/7)",
+                "nl": "Groepsadres voor koelen status (bijv. 11/2/7)"
+              }
+            },
+            {
+              "id": "ga_status_dhw",
+              "type": "text",
+              "label": {
+                "en": "System Status DHW",
+                "nl": "Systeem Status Warmwater"
+              },
+              "value": "11/2/8",
+              "hint": {
+                "en": "Group address for DHW status (e.g., 11/2/8)",
+                "nl": "Groepsadres voor warmwater status (bijv. 11/2/8)"
+              }
+            },
+            {
+              "id": "ga_alarm_knx_error",
+              "type": "text",
+              "label": {
+                "en": "KNX Gateway Error",
+                "nl": "KNX Gateway Fout"
+              },
+              "value": "11/2/10",
+              "hint": {
+                "en": "Group address for KNX gateway error (e.g., 11/2/10)",
+                "nl": "Groepsadres voor KNX gateway fout (bijv. 11/2/10)"
+              }
+            },
+            {
+              "id": "ga_alarm_heating_error",
+              "type": "text",
+              "label": {
+                "en": "Heating Generator Error",
+                "nl": "Verwarmingsgenerator Fout"
+              },
+              "value": "11/2/14",
+              "hint": {
+                "en": "Group address for heating generator error (e.g., 11/2/14)",
+                "nl": "Groepsadres voor verwarmingsgenerator fout (bijv. 11/2/14)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Energy & Power KNX Addresses",
+            "nl": "Energie & Vermogen KNX Adressen"
+          },
+          "children": [
+            {
+              "id": "ga_power_dhw",
+              "type": "text",
+              "label": {
+                "en": "DHW Power Consumption",
+                "nl": "Warmwater Stroomverbruik"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for DHW power consumption in Watts (e.g., 11/3/51)",
+                "nl": "Groepsadres voor warmwater stroomverbruik in Watt (bijv. 11/3/51)"
+              }
+            },
+            {
+              "id": "ga_power_heating_generator",
+              "type": "text",
+              "label": {
+                "en": "Heating Generator Power",
+                "nl": "Verwarmingsgenerator Vermogen"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for heating generator power in Watts (e.g., 11/3/52)",
+                "nl": "Groepsadres voor verwarmingsgenerator vermogen in Watt (bijv. 11/3/52)"
+              }
+            },
+            {
+              "id": "ga_power_environmental_yield",
+              "type": "text",
+              "label": {
+                "en": "Environmental Yield (Total)",
+                "nl": "Milieu Opbrengst (Totaal)"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for environmental yield total in Wh (e.g., 11/2/36) - DPT13",
+                "nl": "Groepsadres voor milieu opbrengst totaal in Wh (bijv. 11/2/36) - DPT13"
+              }
+            },
+            {
+              "id": "ga_energy_dhw_consumption",
+              "type": "text",
+              "label": {
+                "en": "DHW Total Energy Consumption",
+                "nl": "Warmwater Totaal Energieverbruik"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for DHW total energy in Wh (e.g., 11/2/38) - DPT13",
+                "nl": "Groepsadres voor warmwater totaal energie in Wh (bijv. 11/2/38) - DPT13"
+              }
+            },
+            {
+              "id": "ga_energy_heating_consumption",
+              "type": "text",
+              "label": {
+                "en": "Heating Total Energy Consumption",
+                "nl": "Verwarming Totaal Energieverbruik"
+              },
+              "value": "",
+              "hint": {
+                "en": "Group address for heating total energy in Wh (e.g., 11/2/37) - DPT13",
+                "nl": "Groepsadres voor verwarming totaal energie in Wh (bijv. 11/2/37) - DPT13"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network Settings",
+            "nl": "Netwerk Instellingen"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC Address",
+                "nl": "Interface MAC Adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP Address",
+                "nl": "Interface IP Adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "images": {

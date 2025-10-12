@@ -14,6 +14,8 @@
     "measure_temperature.dhw",
     "measure_pressure",
     "target_temperature",
+    "onoff.dhw_mode",
+    "target_temperature.dhw",
     "onoff.status_standby",
     "onoff.status_heating",
     "onoff.status_cooling",
@@ -80,6 +82,27 @@
       "chartType": "spline",
       "decimals": 1,
       "insights": true,
+      "uiIndicator": false
+    },
+    "onoff.dhw_mode": {
+      "title": {
+        "en": "DHW Mode",
+        "nl": "Warmwater Modus"
+      },
+      "uiComponent": "toggle",
+      "uiQuickAction": true,
+      "getable": true,
+      "setable": true
+    },
+    "target_temperature.dhw": {
+      "title": {
+        "en": "DHW Target Temperature",
+        "nl": "Warmwater Doeltemperatuur"
+      },
+      "min": 35,
+      "max": 65,
+      "step": 1,
+      "decimals": 0,
       "uiIndicator": false
     },
     "onoff.status_standby": {
@@ -170,8 +193,8 @@
         "nl": "Milieu Opbrengst"
       },
       "units": {
-        "en": "W",
-        "nl": "W"
+        "en": "Wh",
+        "nl": "Wh"
       },
       "chartType": "stepLine",
       "decimals": 0,
@@ -255,6 +278,41 @@
           "hint": {
             "en": "Group address for HC1 day temperature setpoint (e.g., 11/1/65)",
             "nl": "Groepsadres voor HC1 dagtemperatuur setpoint (bijv. 11/1/65)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "DHW Control KNX Addresses",
+        "nl": "Warmwater Regeling KNX Adressen"
+      },
+      "children": [
+        {
+          "id": "ga_dhw_mode",
+          "type": "text",
+          "label": {
+            "en": "DHW Operating Mode",
+            "nl": "Warmwater Bedrijfsmodus"
+          },
+          "value": "",
+          "hint": {
+            "en": "Group address for DHW on/off control (e.g., 11/1/70)",
+            "nl": "Groepsadres voor warmwater aan/uit regeling (bijv. 11/1/70)"
+          }
+        },
+        {
+          "id": "ga_dhw_target_temp",
+          "type": "text",
+          "label": {
+            "en": "DHW Target Temperature",
+            "nl": "Warmwater Doeltemperatuur"
+          },
+          "value": "",
+          "hint": {
+            "en": "Group address for DHW target temperature setpoint (e.g., 11/1/71)",
+            "nl": "Groepsadres voor warmwater doeltemperatuur setpoint (bijv. 11/1/71)"
           }
         }
       ]
@@ -444,13 +502,13 @@
           "id": "ga_power_environmental_yield",
           "type": "text",
           "label": {
-            "en": "Environmental Yield",
-            "nl": "Milieu Opbrengst"
+            "en": "Environmental Yield (Total)",
+            "nl": "Milieu Opbrengst (Totaal)"
           },
           "value": "",
           "hint": {
-            "en": "Group address for environmental yield in Watts (e.g., 11/3/53)",
-            "nl": "Groepsadres voor milieu opbrengst in Watt (bijv. 11/3/53)"
+            "en": "Group address for environmental yield total in Wh (e.g., 11/2/36) - DPT13",
+            "nl": "Groepsadres voor milieu opbrengst totaal in Wh (bijv. 11/2/36) - DPT13"
           }
         },
         {
@@ -462,8 +520,8 @@
           },
           "value": "",
           "hint": {
-            "en": "Group address for DHW total energy consumption in kWh (e.g., 11/3/54)",
-            "nl": "Groepsadres voor warmwater totaal energieverbruik in kWh (bijv. 11/3/54)"
+            "en": "Group address for DHW total energy in Wh (e.g., 11/2/38) - DPT13",
+            "nl": "Groepsadres voor warmwater totaal energie in Wh (bijv. 11/2/38) - DPT13"
           }
         },
         {
@@ -475,8 +533,8 @@
           },
           "value": "",
           "hint": {
-            "en": "Group address for heating total energy consumption in kWh (e.g., 11/3/55)",
-            "nl": "Groepsadres voor verwarming totaal energieverbruik in kWh (bijv. 11/3/55)"
+            "en": "Group address for heating total energy in Wh (e.g., 11/2/37) - DPT13",
+            "nl": "Groepsadres voor verwarming totaal energie in Wh (bijv. 11/2/37) - DPT13"
           }
         }
       ]

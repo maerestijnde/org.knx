@@ -1,0 +1,15 @@
+{
+  "session_id": "session_dd1426b8_1760187331",
+  "working_directory": "/Users/sdemaere/Projects/org.knx",
+  "created_at": 1760187331.2723432,
+  "initialized": true,
+  "capabilities": {
+    "hot_reload": false,
+    "task_orchestration": true,
+    "domain_services": true,
+    "database_persistence": false,
+    "template_system": true
+  },
+  "database_status": "disconnected",
+  "database_error": "[Errno 30] Read-only file system: '/.task_orchestrator'"
+}
