@@ -1,0 +1,382 @@
+{
+  "actions": [
+    {
+      "id": "trigger_dhw_cylinder_charge",
+      "title": {
+        "en": "Trigger DHW cylinder charge",
+        "nl": "Activeer warmwater boiler opladen"
+      },
+      "titleFormatted": {
+        "en": "Trigger one-time DHW cylinder charge",
+        "nl": "Activeer eenmalig warmwater boiler opladen"
+      },
+      "hint": {
+        "en": "Triggers a one-time hot water cylinder charging cycle. Perfect for off-peak or solar energy periods.",
+        "nl": "Start een eenmalige opwarmcyclus van het warmwater vat. Perfect voor daluren of zonne-energie periodes."
+      }
+    },
+    {
+      "id": "set_dhw_target_temperature",
+      "title": {
+        "en": "Set DHW target temperature",
+        "nl": "Stel warmwater doeltemperatuur in"
+      },
+      "titleFormatted": {
+        "en": "Set DHW temperature to [[temperature]]°C",
+        "nl": "Stel warmwater temperatuur in op [[temperature]]°C"
+      },
+      "hint": {
+        "en": "Set the target temperature for domestic hot water (35-65°C)",
+        "nl": "Stel de doeltemperatuur voor warmwater in (35-65°C)"
+      },
+      "args": [
+        {
+          "name": "temperature",
+          "type": "range",
+          "min": 35,
+          "max": 65,
+          "step": 1,
+          "label": {
+            "en": "Temperature (°C)",
+            "nl": "Temperatuur (°C)"
+          },
+          "value": 50
+        }
+      ]
+    },
+    {
+      "id": "set_hc1_target_temperature",
+      "title": {
+        "en": "Set HC1 target temperature",
+        "nl": "Stel HC1 doeltemperatuur in"
+      },
+      "titleFormatted": {
+        "en": "Set HC1 temperature to [[temperature]]°C",
+        "nl": "Stel HC1 temperatuur in op [[temperature]]°C"
+      },
+      "hint": {
+        "en": "Set the target day temperature for heating circuit 1 (5-30°C)",
+        "nl": "Stel de dag doeltemperatuur voor verwarmingscircuit 1 in (5-30°C)"
+      },
+      "args": [
+        {
+          "name": "temperature",
+          "type": "range",
+          "min": 5,
+          "max": 30,
+          "step": 0.5,
+          "label": {
+            "en": "Temperature (°C)",
+            "nl": "Temperatuur (°C)"
+          },
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "set_dhw_mode",
+      "title": {
+        "en": "Set DHW mode",
+        "nl": "Stel warmwater modus in"
+      },
+      "titleFormatted": {
+        "en": "Turn DHW [[mode]]",
+        "nl": "Zet warmwater [[mode]]"
+      },
+      "hint": {
+        "en": "Turn domestic hot water on or off",
+        "nl": "Zet warmwater aan of uit"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "dhw_is_active",
+      "title": {
+        "en": "DHW is !{{active|inactive}}",
+        "nl": "Warmwater is !{{actief|inactief}}"
+      },
+      "hint": {
+        "en": "Check if domestic hot water system is currently active",
+        "nl": "Controleer of warmwater systeem actief is"
+      },
+      "$filter": "capabilities=onoff.status_dhw"
+    },
+    {
+      "id": "heating_is_active",
+      "title": {
+        "en": "Heating is !{{active|inactive}}",
+        "nl": "Verwarming is !{{actief|inactief}}"
+      },
+      "hint": {
+        "en": "Check if heating system is currently active",
+        "nl": "Controleer of verwarming actief is"
+      },
+      "$filter": "capabilities=onoff.status_heating"
+    },
+    {
+      "id": "cooling_is_active",
+      "title": {
+        "en": "Cooling is !{{active|inactive}}",
+        "nl": "Koeling is !{{actief|inactief}}"
+      },
+      "hint": {
+        "en": "Check if cooling system is currently active",
+        "nl": "Controleer of koeling actief is"
+      },
+      "$filter": "capabilities=onoff.status_cooling"
+    },
+    {
+      "id": "standby_is_active",
+      "title": {
+        "en": "Standby mode is !{{active|inactive}}",
+        "nl": "Standby modus is !{{actief|inactief}}"
+      },
+      "hint": {
+        "en": "Check if system is in standby mode",
+        "nl": "Controleer of systeem in standby staat"
+      },
+      "$filter": "capabilities=onoff.status_standby"
+    },
+    {
+      "id": "has_knx_error",
+      "title": {
+        "en": "KNX gateway !{{has|doesn't have}} an error",
+        "nl": "KNX gateway !{{heeft|heeft geen}} fout"
+      },
+      "hint": {
+        "en": "Check if there is a KNX gateway error",
+        "nl": "Controleer of er een KNX gateway fout is"
+      },
+      "$filter": "capabilities=alarm_generic.knx_error"
+    },
+    {
+      "id": "has_heating_error",
+      "title": {
+        "en": "Heating generator !{{has|doesn't have}} an error",
+        "nl": "Verwarmingsgenerator !{{heeft|heeft geen}} fout"
+      },
+      "hint": {
+        "en": "Check if there is a heating generator error",
+        "nl": "Controleer of er een verwarmingsgenerator fout is"
+      },
+      "$filter": "capabilities=alarm_generic.heating_error"
+    },
+    {
+      "id": "dhw_temperature_compare",
+      "title": {
+        "en": "DHW temperature !{{is|is not}} [[comparison]] [[temperature]]°C",
+        "nl": "Warmwater temperatuur !{{is|is niet}} [[comparison]] [[temperature]]°C"
+      },
+      "titleFormatted": {
+        "en": "DHW temperature [[comparison]] [[temperature]]°C",
+        "nl": "Warmwater temperatuur [[comparison]] [[temperature]]°C"
+      },
+      "hint": {
+        "en": "Compare current DHW temperature with a value",
+        "nl": "Vergelijk huidige warmwater temperatuur met een waarde"
+      },
+      "$filter": "capabilities=measure_temperature.dhw",
+      "args": [
+        {
+          "name": "comparison",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "greater",
+              "title": {
+                "en": "greater than",
+                "nl": "groter dan"
+              }
+            },
+            {
+              "id": "less",
+              "title": {
+                "en": "less than",
+                "nl": "kleiner dan"
+              }
+            },
+            {
+              "id": "equal",
+              "title": {
+                "en": "equal to",
+                "nl": "gelijk aan"
+              }
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "placeholder": {
+            "en": "Temperature",
+            "nl": "Temperatuur"
+          }
+        }
+      ]
+    }
+  ],
+  "triggers": [
+    {
+      "id": "dhw_started",
+      "title": {
+        "en": "DHW started",
+        "nl": "Warmwater gestart"
+      },
+      "hint": {
+        "en": "Triggered when domestic hot water system starts",
+        "nl": "Wordt geactiveerd wanneer warmwater systeem start"
+      },
+      "$filter": "capabilities=onoff.status_dhw"
+    },
+    {
+      "id": "dhw_stopped",
+      "title": {
+        "en": "DHW stopped",
+        "nl": "Warmwater gestopt"
+      },
+      "hint": {
+        "en": "Triggered when domestic hot water system stops",
+        "nl": "Wordt geactiveerd wanneer warmwater systeem stopt"
+      },
+      "$filter": "capabilities=onoff.status_dhw"
+    },
+    {
+      "id": "heating_started",
+      "title": {
+        "en": "Heating started",
+        "nl": "Verwarming gestart"
+      },
+      "hint": {
+        "en": "Triggered when heating system starts",
+        "nl": "Wordt geactiveerd wanneer verwarming start"
+      },
+      "$filter": "capabilities=onoff.status_heating"
+    },
+    {
+      "id": "heating_stopped",
+      "title": {
+        "en": "Heating stopped",
+        "nl": "Verwarming gestopt"
+      },
+      "hint": {
+        "en": "Triggered when heating system stops",
+        "nl": "Wordt geactiveerd wanneer verwarming stopt"
+      },
+      "$filter": "capabilities=onoff.status_heating"
+    },
+    {
+      "id": "cooling_started",
+      "title": {
+        "en": "Cooling started",
+        "nl": "Koeling gestart"
+      },
+      "hint": {
+        "en": "Triggered when cooling system starts",
+        "nl": "Wordt geactiveerd wanneer koeling start"
+      },
+      "$filter": "capabilities=onoff.status_cooling"
+    },
+    {
+      "id": "cooling_stopped",
+      "title": {
+        "en": "Cooling stopped",
+        "nl": "Koeling gestopt"
+      },
+      "hint": {
+        "en": "Triggered when cooling system stops",
+        "nl": "Wordt geactiveerd wanneer koeling stopt"
+      },
+      "$filter": "capabilities=onoff.status_cooling"
+    },
+    {
+      "id": "knx_error_triggered",
+      "title": {
+        "en": "KNX gateway error occurred",
+        "nl": "KNX gateway fout opgetreden"
+      },
+      "hint": {
+        "en": "Triggered when a KNX gateway error occurs",
+        "nl": "Wordt geactiveerd wanneer een KNX gateway fout optreedt"
+      },
+      "$filter": "capabilities=alarm_generic.knx_error"
+    },
+    {
+      "id": "heating_error_triggered",
+      "title": {
+        "en": "Heating generator error occurred",
+        "nl": "Verwarmingsgenerator fout opgetreden"
+      },
+      "hint": {
+        "en": "Triggered when a heating generator error occurs",
+        "nl": "Wordt geactiveerd wanneer een verwarmingsgenerator fout optreedt"
+      },
+      "$filter": "capabilities=alarm_generic.heating_error"
+    },
+    {
+      "id": "dhw_temperature_reached",
+      "title": {
+        "en": "DHW temperature reached",
+        "nl": "Warmwater temperatuur bereikt"
+      },
+      "titleFormatted": {
+        "en": "DHW temperature reached [[temperature]]°C",
+        "nl": "Warmwater temperatuur bereikte [[temperature]]°C"
+      },
+      "hint": {
+        "en": "Triggered when DHW temperature reaches a specific value",
+        "nl": "Wordt geactiveerd wanneer warmwater temperatuur een specifieke waarde bereikt"
+      },
+      "$filter": "capabilities=measure_temperature.dhw",
+      "args": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "placeholder": {
+            "en": "Temperature",
+            "nl": "Temperatuur"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur"
+          },
+          "example": 55
+        }
+      ]
+    }
+  ]
+}

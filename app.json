@@ -1157,6 +1157,194 @@
         ]
       },
       {
+        "id": "dhw_started",
+        "title": {
+          "en": "DHW started",
+          "nl": "Warmwater gestart"
+        },
+        "hint": {
+          "en": "Triggered when domestic hot water system starts",
+          "nl": "Wordt geactiveerd wanneer warmwater systeem start"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_dhw"
+          }
+        ]
+      },
+      {
+        "id": "dhw_stopped",
+        "title": {
+          "en": "DHW stopped",
+          "nl": "Warmwater gestopt"
+        },
+        "hint": {
+          "en": "Triggered when domestic hot water system stops",
+          "nl": "Wordt geactiveerd wanneer warmwater systeem stopt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_dhw"
+          }
+        ]
+      },
+      {
+        "id": "heating_started",
+        "title": {
+          "en": "Heating started",
+          "nl": "Verwarming gestart"
+        },
+        "hint": {
+          "en": "Triggered when heating system starts",
+          "nl": "Wordt geactiveerd wanneer verwarming start"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_heating"
+          }
+        ]
+      },
+      {
+        "id": "heating_stopped",
+        "title": {
+          "en": "Heating stopped",
+          "nl": "Verwarming gestopt"
+        },
+        "hint": {
+          "en": "Triggered when heating system stops",
+          "nl": "Wordt geactiveerd wanneer verwarming stopt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_heating"
+          }
+        ]
+      },
+      {
+        "id": "cooling_started",
+        "title": {
+          "en": "Cooling started",
+          "nl": "Koeling gestart"
+        },
+        "hint": {
+          "en": "Triggered when cooling system starts",
+          "nl": "Wordt geactiveerd wanneer koeling start"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_cooling"
+          }
+        ]
+      },
+      {
+        "id": "cooling_stopped",
+        "title": {
+          "en": "Cooling stopped",
+          "nl": "Koeling gestopt"
+        },
+        "hint": {
+          "en": "Triggered when cooling system stops",
+          "nl": "Wordt geactiveerd wanneer koeling stopt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_cooling"
+          }
+        ]
+      },
+      {
+        "id": "knx_error_triggered",
+        "title": {
+          "en": "KNX gateway error occurred",
+          "nl": "KNX gateway fout opgetreden"
+        },
+        "hint": {
+          "en": "Triggered when a KNX gateway error occurs",
+          "nl": "Wordt geactiveerd wanneer een KNX gateway fout optreedt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=alarm_generic.knx_error"
+          }
+        ]
+      },
+      {
+        "id": "heating_error_triggered",
+        "title": {
+          "en": "Heating generator error occurred",
+          "nl": "Verwarmingsgenerator fout opgetreden"
+        },
+        "hint": {
+          "en": "Triggered when a heating generator error occurs",
+          "nl": "Wordt geactiveerd wanneer een verwarmingsgenerator fout optreedt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=alarm_generic.heating_error"
+          }
+        ]
+      },
+      {
+        "id": "dhw_temperature_reached",
+        "title": {
+          "en": "DHW temperature reached",
+          "nl": "Warmwater temperatuur bereikt"
+        },
+        "titleFormatted": {
+          "en": "DHW temperature reached [[temperature]]°C",
+          "nl": "Warmwater temperatuur bereikte [[temperature]]°C"
+        },
+        "hint": {
+          "en": "Triggered when DHW temperature reaches a specific value",
+          "nl": "Wordt geactiveerd wanneer warmwater temperatuur een specifieke waarde bereikt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=measure_temperature.dhw"
+          },
+          {
+            "name": "temperature",
+            "type": "number",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "placeholder": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 55
+          }
+        ]
+      },
+      {
         "id": "humidity_changed",
         "title": {
           "en": "Humidity changed",
@@ -1583,6 +1771,350 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=knx_motion_sensor"
+          }
+        ]
+      },
+      {
+        "id": "room_controller_button1_changed",
+        "title": {
+          "en": "Button 1 turned on or off",
+          "nl": "Knop 1 aan of uit gezet",
+          "da": "Knap 1 tændt eller slukket",
+          "de": "Taste 1 ein- oder ausgeschaltet",
+          "es": "Botón 1 encendido o apagado",
+          "fr": "Bouton 1 allumé ou éteint",
+          "it": "Pulsante 1 acceso o spento",
+          "no": "Knapp 1 slått på eller av",
+          "sv": "Knapp 1 slås på eller av",
+          "pl": "Przycisk 1 włączony lub wyłączony",
+          "ru": "Кнопка 1 включена или выключена",
+          "ko": "버튼 1 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 1 turned on or off",
+          "nl": "Knop 1 aan of uit gezet",
+          "da": "Knap 1 tændt eller slukket",
+          "de": "Taste 1 ein- oder ausgeschaltet",
+          "es": "Botón 1 encendido o apagado",
+          "fr": "Bouton 1 allumé ou éteint",
+          "it": "Pulsante 1 acceso o spento",
+          "no": "Knapp 1 slått på eller av",
+          "sv": "Knapp 1 slås på eller av",
+          "pl": "Przycisk 1 włączony lub wyłączony",
+          "ru": "Кнопка 1 включена или выключена",
+          "ko": "버튼 1 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 1 is changed from on/off to off/on",
+          "nl": "Wanneer knop 1 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 1 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 1 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 1 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 1 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 1 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 1 endres fra på/av til av/på",
+          "sv": "När knapp 1 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 1 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 1 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 1이 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 1",
+              "nl": "De huidige status van knop 1",
+              "da": "Knap 1's aktuelle status",
+              "de": "Der aktuelle Status von Taste 1",
+              "es": "El estado actual del botón 1",
+              "fr": "L'état actuel du bouton 1",
+              "it": "Lo stato attuale del pulsante 1",
+              "no": "Gjeldende status for knapp 1",
+              "sv": "Aktuell status för knapp 1",
+              "pl": "Aktualny stan przycisku 1",
+              "ru": "Текущий статус кнопки 1",
+              "ko": "현재 버튼 1 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller"
+          }
+        ]
+      },
+      {
+        "id": "room_controller_button2_changed",
+        "title": {
+          "en": "Button 2 turned on or off",
+          "nl": "Knop 2 aan of uit gezet",
+          "da": "Knap 2 tændt eller slukket",
+          "de": "Taste 2 ein- oder ausgeschaltet",
+          "es": "Botón 2 encendido o apagado",
+          "fr": "Bouton 2 allumé ou éteint",
+          "it": "Pulsante 2 acceso o spento",
+          "no": "Knapp 2 slått på eller av",
+          "sv": "Knapp 2 slås på eller av",
+          "pl": "Przycisk 2 włączony lub wyłączony",
+          "ru": "Кнопка 2 включена или выключена",
+          "ko": "버튼 2 켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Button 2 turned on or off",
+          "nl": "Knop 2 aan of uit gezet",
+          "da": "Knap 2 tændt eller slukket",
+          "de": "Taste 2 ein- oder ausgeschaltet",
+          "es": "Botón 2 encendido o apagado",
+          "fr": "Bouton 2 allumé ou éteint",
+          "it": "Pulsante 2 acceso o spento",
+          "no": "Knapp 2 slått på eller av",
+          "sv": "Knapp 2 slås på eller av",
+          "pl": "Przycisk 2 włączony lub wyłączony",
+          "ru": "Кнопка 2 включена или выключена",
+          "ko": "버튼 2 켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When button 2 is changed from on/off to off/on",
+          "nl": "Wanneer knop 2 van aan/uit naar uit/aan wordt gezet",
+          "da": "Når knap 2 ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn Taste 2 von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el botón 2 se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque le bouton 2 passe de allumé/éteint à éteint/allumé",
+          "it": "Quando il pulsante 2 passa da acceso/spento a spento/acceso",
+          "no": "Når knapp 2 endres fra på/av til av/på",
+          "sv": "När knapp 2 ändras från på/av till av/på",
+          "pl": "Gdy przycisk 2 zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда кнопка 2 изменяется с включено/выключено на выключено/включено",
+          "ko": "버튼 2가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of button 2",
+              "nl": "De huidige status van knop 2",
+              "da": "Knap 2's aktuelle status",
+              "de": "Der aktuelle Status von Taste 2",
+              "es": "El estado actual del botón 2",
+              "fr": "L'état actuel du bouton 2",
+              "it": "Lo stato attuale del pulsante 2",
+              "no": "Gjeldende status for knapp 2",
+              "sv": "Aktuell status för knapp 2",
+              "pl": "Aktualny stan przycisku 2",
+              "ru": "Текущий статус кнопки 2",
+              "ko": "현재 버튼 2 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller"
+          }
+        ]
+      },
+      {
+        "id": "room_controller_temperature_changed",
+        "title": {
+          "en": "Temperature changed",
+          "nl": "Temperatuur veranderd",
+          "da": "Temperatur ændret",
+          "de": "Temperatur geändert",
+          "es": "Temperatura cambiada",
+          "fr": "Température changée",
+          "it": "Temperatura cambiata",
+          "no": "Temperatur endret",
+          "sv": "Temperatur ändrad",
+          "pl": "Temperatura zmieniona",
+          "ru": "Температура изменилась",
+          "ko": "온도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Temperature changed",
+          "nl": "Temperatuur veranderd",
+          "da": "Temperatur ændret",
+          "de": "Temperatur geändert",
+          "es": "Temperatura cambiada",
+          "fr": "Température changée",
+          "it": "Temperatura cambiata",
+          "no": "Temperatur endret",
+          "sv": "Temperatur ändrad",
+          "pl": "Temperatura zmieniona",
+          "ru": "Температура изменилась",
+          "ko": "온도 변경됨"
+        },
+        "hint": {
+          "en": "When the temperature changes",
+          "nl": "Wanneer de temperatuur verandert",
+          "da": "Når temperaturen ændres",
+          "de": "Wenn sich die Temperatur ändert",
+          "es": "Cuando cambia la temperatura",
+          "fr": "Lorsque la température change",
+          "it": "Quando la temperatura cambia",
+          "no": "Når temperaturen endres",
+          "sv": "När temperaturen ändras",
+          "pl": "Gdy zmienia się temperatura",
+          "ru": "Когда температура изменяется",
+          "ko": "온도가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "da": "Temperatur",
+              "de": "Temperatur",
+              "es": "Temperatura",
+              "fr": "Température",
+              "it": "Temperatura",
+              "no": "Temperatur",
+              "sv": "Temperatur",
+              "pl": "Temperatura",
+              "ru": "Температура",
+              "ko": "온도"
+            },
+            "example": {
+              "en": "The current temperature in °C",
+              "nl": "De huidige temperatuur in °C",
+              "da": "Den aktuelle temperatur i °C",
+              "de": "Die aktuelle Temperatur in °C",
+              "es": "La temperatura actual en °C",
+              "fr": "La température actuelle en °C",
+              "it": "La temperatura attuale in °C",
+              "no": "Gjeldende temperatur i °C",
+              "sv": "Aktuell temperatur i °C",
+              "pl": "Aktualna temperatura w °C",
+              "ru": "Текущая температура в °C",
+              "ko": "현재 온도(°C)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller"
+          }
+        ]
+      },
+      {
+        "id": "room_controller_humidity_changed",
+        "title": {
+          "en": "Humidity changed",
+          "nl": "Luchtvochtigheid veranderd",
+          "da": "Luftfugtighed ændret",
+          "de": "Luftfeuchtigkeit geändert",
+          "es": "Humedad cambiada",
+          "fr": "Humidité changée",
+          "it": "Umidità cambiata",
+          "no": "Luftfuktighet endret",
+          "sv": "Luftfuktighet ändrad",
+          "pl": "Wilgotność zmieniona",
+          "ru": "Влажность изменилась",
+          "ko": "습도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Humidity changed",
+          "nl": "Luchtvochtigheid veranderd",
+          "da": "Luftfugtighed ændret",
+          "de": "Luftfeuchtigkeit geändert",
+          "es": "Humedad cambiada",
+          "fr": "Humidité changée",
+          "it": "Umidità cambiata",
+          "no": "Luftfuktighet endret",
+          "sv": "Luftfuktighet ändrad",
+          "pl": "Wilgotność zmieniona",
+          "ru": "Влажность изменилась",
+          "ko": "습도 변경됨"
+        },
+        "hint": {
+          "en": "When the humidity changes",
+          "nl": "Wanneer de luchtvochtigheid verandert",
+          "da": "Når luftfugtigheden ændres",
+          "de": "Wenn sich die Luftfeuchtigkeit ändert",
+          "es": "Cuando cambia la humedad",
+          "fr": "Lorsque l'humidité change",
+          "it": "Quando l'umidità cambia",
+          "no": "Når luftfuktigheten endres",
+          "sv": "När luftfuktigheten ändras",
+          "pl": "Gdy zmienia się wilgotność",
+          "ru": "Когда влажность изменяется",
+          "ko": "습도가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "humidity",
+            "title": {
+              "en": "Humidity",
+              "nl": "Luchtvochtigheid",
+              "da": "Luftfugtighed",
+              "de": "Luftfeuchtigkeit",
+              "es": "Humedad",
+              "fr": "Humidité",
+              "it": "Umidità",
+              "no": "Luftfuktighet",
+              "sv": "Luftfuktighet",
+              "pl": "Wilgotność",
+              "ru": "Влажность",
+              "ko": "습도"
+            },
+            "example": {
+              "en": "The current humidity in %",
+              "nl": "De huidige luchtvochtigheid in %",
+              "da": "Den aktuelle luftfugtighed i %",
+              "de": "Die aktuelle Luftfeuchtigkeit in %",
+              "es": "La humedad actual en %",
+              "fr": "L'humidité actuelle en %",
+              "it": "L'umidità attuale in %",
+              "no": "Gjeldende luftfuktighet i %",
+              "sv": "Aktuell luftfuktighet i %",
+              "pl": "Aktualna wilgotność w %",
+              "ru": "Текущая влажность в %",
+              "ko": "현재 습도(%)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_room_controller"
           }
         ]
       },
@@ -3254,6 +3786,138 @@
         "id": "trigger_to_scene"
       },
       {
+        "id": "trigger_dhw_cylinder_charge",
+        "title": {
+          "en": "Trigger DHW cylinder charge",
+          "nl": "Activeer warmwater boiler opladen"
+        },
+        "titleFormatted": {
+          "en": "Trigger one-time DHW cylinder charge",
+          "nl": "Activeer eenmalig warmwater boiler opladen"
+        },
+        "hint": {
+          "en": "Triggers a one-time hot water cylinder charging cycle. Perfect for off-peak or solar energy periods.",
+          "nl": "Start een eenmalige opwarmcyclus van het warmwater vat. Perfect voor daluren of zonne-energie periodes."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump"
+          }
+        ]
+      },
+      {
+        "id": "set_dhw_target_temperature",
+        "title": {
+          "en": "Set DHW target temperature",
+          "nl": "Stel warmwater doeltemperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set DHW temperature to [[temperature]]°C",
+          "nl": "Stel warmwater temperatuur in op [[temperature]]°C"
+        },
+        "hint": {
+          "en": "Set the target temperature for domestic hot water (35-65°C)",
+          "nl": "Stel de doeltemperatuur voor warmwater in (35-65°C)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump"
+          },
+          {
+            "name": "temperature",
+            "type": "range",
+            "min": 35,
+            "max": 65,
+            "step": 1,
+            "label": {
+              "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)"
+            },
+            "value": 50
+          }
+        ]
+      },
+      {
+        "id": "set_hc1_target_temperature",
+        "title": {
+          "en": "Set HC1 target temperature",
+          "nl": "Stel HC1 doeltemperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set HC1 temperature to [[temperature]]°C",
+          "nl": "Stel HC1 temperatuur in op [[temperature]]°C"
+        },
+        "hint": {
+          "en": "Set the target day temperature for heating circuit 1 (5-30°C)",
+          "nl": "Stel de dag doeltemperatuur voor verwarmingscircuit 1 in (5-30°C)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump"
+          },
+          {
+            "name": "temperature",
+            "type": "range",
+            "min": 5,
+            "max": 30,
+            "step": 0.5,
+            "label": {
+              "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)"
+            },
+            "value": 20
+          }
+        ]
+      },
+      {
+        "id": "set_dhw_mode",
+        "title": {
+          "en": "Set DHW mode",
+          "nl": "Stel warmwater modus in"
+        },
+        "titleFormatted": {
+          "en": "Turn DHW [[mode]]",
+          "nl": "Zet warmwater [[mode]]"
+        },
+        "hint": {
+          "en": "Turn domestic hot water on or off",
+          "nl": "Zet warmwater aan of uit"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "title": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "change_hvac_mode",
         "title": {
           "en": "Change HVAC mode",
@@ -3322,6 +3986,176 @@
                 }
               }
             ]
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "dhw_is_active",
+        "title": {
+          "en": "DHW is !{{active|inactive}}",
+          "nl": "Warmwater is !{{actief|inactief}}"
+        },
+        "hint": {
+          "en": "Check if domestic hot water system is currently active",
+          "nl": "Controleer of warmwater systeem actief is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_dhw"
+          }
+        ]
+      },
+      {
+        "id": "heating_is_active",
+        "title": {
+          "en": "Heating is !{{active|inactive}}",
+          "nl": "Verwarming is !{{actief|inactief}}"
+        },
+        "hint": {
+          "en": "Check if heating system is currently active",
+          "nl": "Controleer of verwarming actief is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_heating"
+          }
+        ]
+      },
+      {
+        "id": "cooling_is_active",
+        "title": {
+          "en": "Cooling is !{{active|inactive}}",
+          "nl": "Koeling is !{{actief|inactief}}"
+        },
+        "hint": {
+          "en": "Check if cooling system is currently active",
+          "nl": "Controleer of koeling actief is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_cooling"
+          }
+        ]
+      },
+      {
+        "id": "standby_is_active",
+        "title": {
+          "en": "Standby mode is !{{active|inactive}}",
+          "nl": "Standby modus is !{{actief|inactief}}"
+        },
+        "hint": {
+          "en": "Check if system is in standby mode",
+          "nl": "Controleer of systeem in standby staat"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=onoff.status_standby"
+          }
+        ]
+      },
+      {
+        "id": "has_knx_error",
+        "title": {
+          "en": "KNX gateway !{{has|doesn't have}} an error",
+          "nl": "KNX gateway !{{heeft|heeft geen}} fout"
+        },
+        "hint": {
+          "en": "Check if there is a KNX gateway error",
+          "nl": "Controleer of er een KNX gateway fout is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=alarm_generic.knx_error"
+          }
+        ]
+      },
+      {
+        "id": "has_heating_error",
+        "title": {
+          "en": "Heating generator !{{has|doesn't have}} an error",
+          "nl": "Verwarmingsgenerator !{{heeft|heeft geen}} fout"
+        },
+        "hint": {
+          "en": "Check if there is a heating generator error",
+          "nl": "Controleer of er een verwarmingsgenerator fout is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=alarm_generic.heating_error"
+          }
+        ]
+      },
+      {
+        "id": "dhw_temperature_compare",
+        "title": {
+          "en": "DHW temperature !{{is|is not}} [[comparison]] [[temperature]]°C",
+          "nl": "Warmwater temperatuur !{{is|is niet}} [[comparison]] [[temperature]]°C"
+        },
+        "titleFormatted": {
+          "en": "DHW temperature [[comparison]] [[temperature]]°C",
+          "nl": "Warmwater temperatuur [[comparison]] [[temperature]]°C"
+        },
+        "hint": {
+          "en": "Compare current DHW temperature with a value",
+          "nl": "Vergelijk huidige warmwater temperatuur met een waarde"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heatpump&capabilities=measure_temperature.dhw"
+          },
+          {
+            "name": "comparison",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "greater",
+                "title": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "less",
+                "title": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "equal",
+                "title": {
+                  "en": "equal to",
+                  "nl": "gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "name": "temperature",
+            "type": "number",
+            "min": 0,
+            "max": 100,
+            "step": 0.5,
+            "placeholder": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            }
           }
         ]
       }
@@ -5016,6 +5850,7 @@
         "target_temperature",
         "onoff.dhw_mode",
         "target_temperature.dhw",
+        "button.dhw_cylinder_charge",
         "onoff.status_standby",
         "onoff.status_heating",
         "onoff.status_cooling",
@@ -5104,6 +5939,24 @@
           "step": 1,
           "decimals": 0,
           "uiIndicator": false
+        },
+        "button.dhw_cylinder_charge": {
+          "title": {
+            "en": "Start DHW Cylinder Charge",
+            "nl": "Start Warmwater Boiler Opladen"
+          },
+          "desc": {
+            "en": "Trigger one-time hot water cylinder charging cycle",
+            "nl": "Start eenmalige opwarmcyclus van warmwater boiler"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true,
+          "getable": false,
+          "setable": true,
+          "insightsTitleTrue": {
+            "en": "DHW cylinder charge triggered",
+            "nl": "Warmwater boiler opladen gestart"
+          }
         },
         "onoff.status_standby": {
           "title": {
@@ -5265,10 +6118,10 @@
                 "en": "DHW Operating Mode",
                 "nl": "Warmwater Bedrijfsmodus"
               },
-              "value": "",
+              "value": "11/2/29",
               "hint": {
-                "en": "Group address for DHW on/off control (e.g., 11/1/70)",
-                "nl": "Groepsadres voor warmwater aan/uit regeling (bijv. 11/1/70)"
+                "en": "Group address for DHW auto mode on/off (11/2/29)",
+                "nl": "Groepsadres voor warmwater auto modus aan/uit (11/2/29)"
               }
             },
             {
@@ -5278,10 +6131,23 @@
                 "en": "DHW Target Temperature",
                 "nl": "Warmwater Doeltemperatuur"
               },
-              "value": "",
+              "value": "11/2/31",
               "hint": {
-                "en": "Group address for DHW target temperature setpoint (e.g., 11/1/71)",
-                "nl": "Groepsadres voor warmwater doeltemperatuur setpoint (bijv. 11/1/71)"
+                "en": "Group address for DHW target temperature setpoint (11/2/31)",
+                "nl": "Groepsadres voor warmwater doeltemperatuur setpoint (11/2/31)"
+              }
+            },
+            {
+              "id": "ga_dhw_cylinder_charge",
+              "type": "text",
+              "label": {
+                "en": "DHW 1x Cylinder Charge",
+                "nl": "Warmwater 1x Boiler Opladen"
+              },
+              "value": "11/2/32",
+              "hint": {
+                "en": "Group address for one-time DHW cylinder charge trigger (11/2/32)",
+                "nl": "Groepsadres voor eenmalige warmwater boiler opladen trigger (11/2/32)"
               }
             }
           ]
@@ -5450,8 +6316,8 @@
               },
               "value": "",
               "hint": {
-                "en": "Group address for DHW power consumption in Watts (e.g., 11/3/51)",
-                "nl": "Groepsadres voor warmwater stroomverbruik in Watt (bijv. 11/3/51)"
+                "en": "Group address for DHW power consumption in Watts (optional - not available in your setup)",
+                "nl": "Groepsadres voor warmwater stroomverbruik in Watt (optioneel - niet beschikbaar in jouw setup)"
               }
             },
             {
@@ -5463,8 +6329,8 @@
               },
               "value": "",
               "hint": {
-                "en": "Group address for heating generator power in Watts (e.g., 11/3/52)",
-                "nl": "Groepsadres voor verwarmingsgenerator vermogen in Watt (bijv. 11/3/52)"
+                "en": "Group address for heating generator power in Watts (optional - not available in your setup)",
+                "nl": "Groepsadres voor verwarmingsgenerator vermogen in Watt (optioneel - niet beschikbaar in jouw setup)"
               }
             },
             {
@@ -5474,10 +6340,10 @@
                 "en": "Environmental Yield (Total)",
                 "nl": "Milieu Opbrengst (Totaal)"
               },
-              "value": "",
+              "value": "11/2/36",
               "hint": {
-                "en": "Group address for environmental yield total in Wh (e.g., 11/2/36) - DPT13",
-                "nl": "Groepsadres voor milieu opbrengst totaal in Wh (bijv. 11/2/36) - DPT13"
+                "en": "Group address for environmental yield total in kWh (11/2/36) - DPT13",
+                "nl": "Groepsadres voor milieu opbrengst totaal in kWh (11/2/36) - DPT13"
               }
             },
             {
@@ -5487,10 +6353,10 @@
                 "en": "DHW Total Energy Consumption",
                 "nl": "Warmwater Totaal Energieverbruik"
               },
-              "value": "",
+              "value": "11/2/38",
               "hint": {
-                "en": "Group address for DHW total energy in Wh (e.g., 11/2/38) - DPT13",
-                "nl": "Groepsadres voor warmwater totaal energie in Wh (bijv. 11/2/38) - DPT13"
+                "en": "Group address for DHW total energy in kWh (11/2/38) - DPT13",
+                "nl": "Groepsadres voor warmwater totaal energie in kWh (11/2/38) - DPT13"
               }
             },
             {
@@ -5500,10 +6366,10 @@
                 "en": "Heating Total Energy Consumption",
                 "nl": "Verwarming Totaal Energieverbruik"
               },
-              "value": "",
+              "value": "11/2/37",
               "hint": {
-                "en": "Group address for heating total energy in Wh (e.g., 11/2/37) - DPT13",
-                "nl": "Groepsadres voor verwarming totaal energie in Wh (bijv. 11/2/37) - DPT13"
+                "en": "Group address for heating total energy in kWh (11/2/37) - DPT13",
+                "nl": "Groepsadres voor verwarming totaal energie in kWh (11/2/37) - DPT13"
               }
             }
           ]

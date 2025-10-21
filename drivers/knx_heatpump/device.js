@@ -12,10 +12,14 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
 
     // Register capability listener for target temperature changes
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
-    
+
     // Register capability listeners for DHW control
     this.registerCapabilityListener('onoff.dhw_mode', this.onCapabilityDHWMode.bind(this));
     this.registerCapabilityListener('target_temperature.dhw', this.onCapabilityDHWTargetTemperature.bind(this));
+    this.registerCapabilityListener('button.dhw_cylinder_charge', this.onCapabilityDHWCylinderCharge.bind(this));
+
+    // Register flow card action handlers
+    this.registerFlowCardActions();
   }
 
   /**
@@ -123,6 +127,85 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
   }
 
   /**
+   * Handle DHW cylinder charge button press
+   */
+  async onCapabilityDHWCylinderCharge() {
+    if (!this.knxInterface || !this.settings.ga_dhw_cylinder_charge) {
+      throw new Error('DHW cylinder charge group address not configured');
+    }
+
+    this.log('🔥 Triggering DHW cylinder charge (one-time heating cycle)');
+
+    // Send true/1 to trigger the one-time charge
+    const buffer = DatapointTypeParser.encodeDpt1(true);
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dhw_cylinder_charge, buffer, 'DPT1')
+      .then(() => {
+        this.log('✅ DHW cylinder charge triggered successfully');
+      })
+      .catch((knxerror) => {
+        this.error('❌ Failed to trigger DHW cylinder charge:', knxerror);
+        throw new Error('Failed to trigger DHW cylinder charge');
+      });
+  }
+
+  /**
+   * Register flow card action handlers
+   */
+  registerFlowCardActions() {
+    // Action: Trigger DHW cylinder charge
+    this.homey.flow.getActionCard('trigger_dhw_cylinder_charge')
+      .registerRunListener(async () => {
+        await this.onCapabilityDHWCylinderCharge();
+        return true;
+      });
+
+    // Action: Set DHW target temperature
+    this.homey.flow.getActionCard('set_dhw_target_temperature')
+      .registerRunListener(async (args) => {
+        await this.setCapabilityValue('target_temperature.dhw', args.temperature);
+        await this.onCapabilityDHWTargetTemperature(args.temperature);
+        return true;
+      });
+
+    // Action: Set HC1 target temperature
+    this.homey.flow.getActionCard('set_hc1_target_temperature')
+      .registerRunListener(async (args) => {
+        await this.setCapabilityValue('target_temperature', args.temperature);
+        await this.onCapabilityTargetTemperature(args.temperature);
+        return true;
+      });
+
+    // Action: Set DHW mode (on/off)
+    this.homey.flow.getActionCard('set_dhw_mode')
+      .registerRunListener(async (args) => {
+        const modeValue = args.mode === 'on';
+        await this.setCapabilityValue('onoff.dhw_mode', modeValue);
+        await this.onCapabilityDHWMode(modeValue);
+        return true;
+      });
+
+    // Condition: DHW temperature comparison
+    this.homey.flow.getConditionCard('dhw_temperature_compare')
+      .registerRunListener(async (args) => {
+        const currentTemp = this.getCapabilityValue('measure_temperature.dhw');
+        const targetTemp = args.temperature;
+
+        switch (args.comparison) {
+          case 'greater':
+            return currentTemp > targetTemp;
+          case 'less':
+            return currentTemp < targetTemp;
+          case 'equal':
+            return Math.abs(currentTemp - targetTemp) < 0.5; // 0.5°C tolerance
+          default:
+            return false;
+        }
+      });
+
+    this.log('✅ Flow card actions registered');
+  }
+
+  /**
    * Called when KNX connection status changes
    */
   onKNXConnection(connectionStatus) {
@@ -196,6 +279,12 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
       const value = DatapointTypeParser.dpt9(data);
       this.setCapabilityValue('measure_temperature.dhw', value).catch(this.error);
       this.log(`✅ DHW Temperature updated: ${value}°C`);
+
+      // Trigger temperature reached flow card with token
+      this.homey.flow.getDeviceTriggerCard('dhw_temperature_reached')
+        .trigger(this, { temperature: value })
+        .catch(this.error);
+
       return;
     }
 
@@ -223,8 +312,18 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
     if (groupaddress === settings.ga_status_heating) {
       this.log('🔥 Processing Heating Status event');
       const value = DatapointTypeParser.bitFormat(data);
+      const previousValue = this.getCapabilityValue('onoff.status_heating');
       this.setCapabilityValue('onoff.status_heating', value).catch(this.error);
       this.log(`✅ Heating Status updated: ${value}`);
+
+      // Trigger flow cards for status changes
+      if (value && !previousValue) {
+        this.homey.flow.getDeviceTriggerCard('heating_started').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: Heating started');
+      } else if (!value && previousValue) {
+        this.homey.flow.getDeviceTriggerCard('heating_stopped').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: Heating stopped');
+      }
       return;
     }
 
@@ -232,8 +331,18 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
     if (groupaddress === settings.ga_status_cooling) {
       this.log('❄️ Processing Cooling Status event');
       const value = DatapointTypeParser.bitFormat(data);
+      const previousValue = this.getCapabilityValue('onoff.status_cooling');
       this.setCapabilityValue('onoff.status_cooling', value).catch(this.error);
       this.log(`✅ Cooling Status updated: ${value}`);
+
+      // Trigger flow cards for status changes
+      if (value && !previousValue) {
+        this.homey.flow.getDeviceTriggerCard('cooling_started').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: Cooling started');
+      } else if (!value && previousValue) {
+        this.homey.flow.getDeviceTriggerCard('cooling_stopped').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: Cooling stopped');
+      }
       return;
     }
 
@@ -241,8 +350,18 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
     if (groupaddress === settings.ga_status_dhw) {
       this.log('🚿 Processing DHW Status event');
       const value = DatapointTypeParser.bitFormat(data);
+      const previousValue = this.getCapabilityValue('onoff.status_dhw');
       this.setCapabilityValue('onoff.status_dhw', value).catch(this.error);
       this.log(`✅ DHW Status updated: ${value}`);
+
+      // Trigger flow cards for status changes
+      if (value && !previousValue) {
+        this.homey.flow.getDeviceTriggerCard('dhw_started').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: DHW started');
+      } else if (!value && previousValue) {
+        this.homey.flow.getDeviceTriggerCard('dhw_stopped').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: DHW stopped');
+      }
       return;
     }
 
@@ -252,6 +371,12 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('alarm_generic.knx_error', value).catch(this.error);
       this.log(`✅ KNX Error Alarm updated: ${value}`);
+
+      // Trigger flow card when error occurs
+      if (value) {
+        this.homey.flow.getDeviceTriggerCard('knx_error_triggered').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: KNX gateway error occurred');
+      }
       return;
     }
 
@@ -261,6 +386,12 @@ class KNXHeatpumpDevice extends KNXGenericSensor {
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('alarm_generic.heating_error', value).catch(this.error);
       this.log(`✅ Heating Error Alarm updated: ${value}`);
+
+      // Trigger flow card when error occurs
+      if (value) {
+        this.homey.flow.getDeviceTriggerCard('heating_error_triggered').trigger(this).catch(this.error);
+        this.log('🔔 Triggered flow card: Heating generator error occurred');
+      }
       return;
     }
 

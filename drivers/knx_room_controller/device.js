@@ -21,22 +21,34 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
     this.log('🔥 KNX Event received:', { groupaddress, data });
 
     // Handle Button 1 events (listen to BOTH switch and feedback addresses)
-    if (groupaddress === settings.ga_button1_feedback || 
+    if (groupaddress === settings.ga_button1_feedback ||
         groupaddress === settings.ga_button1_switch) {
       this.log('🔘 Processing Button 1 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button1', value).catch(this.error);
       this.log(`✅ Button 1 updated: ${value}`);
+
+      // Trigger flow card
+      this.homey.flow.getDeviceTriggerCard('room_controller_button1_changed')
+        .trigger(this, { status: value })
+        .catch((err) => this.error('Button 1 changed trigger error', err));
+
       return;
     }
 
     // Handle Button 2 events (listen to BOTH switch and feedback addresses)
-    if (groupaddress === settings.ga_button2_feedback || 
+    if (groupaddress === settings.ga_button2_feedback ||
         groupaddress === settings.ga_button2_switch) {
       this.log('🔘 Processing Button 2 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button2', value).catch(this.error);
       this.log(`✅ Button 2 updated: ${value}`);
+
+      // Trigger flow card
+      this.homey.flow.getDeviceTriggerCard('room_controller_button2_changed')
+        .trigger(this, { status: value })
+        .catch((err) => this.error('Button 2 changed trigger error', err));
+
       return;
     }
 
@@ -48,7 +60,7 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
       this.log(`✅ Temperature updated: ${value}°C`);
       
       // Trigger flow cards
-      this.homey.flow.getDeviceTriggerCard('temperature_changed')
+      this.homey.flow.getDeviceTriggerCard('room_controller_temperature_changed')
         .trigger(this, { temperature: value })
         .catch((err) => this.error('Temperature changed trigger error', err));
       return;
@@ -62,7 +74,7 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
       this.log(`✅ Humidity updated: ${value}%`);
       
       // Trigger flow cards
-      this.homey.flow.getDeviceTriggerCard('humidity_changed')
+      this.homey.flow.getDeviceTriggerCard('room_controller_humidity_changed')
         .trigger(this, { humidity: value })
         .catch((err) => this.error('Humidity changed trigger error', err));
       return;

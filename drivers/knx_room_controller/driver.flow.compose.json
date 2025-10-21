@@ -1,0 +1,320 @@
+{
+  "triggers": [
+    {
+      "id": "room_controller_button1_changed",
+      "title": {
+        "en": "Button 1 turned on or off",
+        "nl": "Knop 1 aan of uit gezet",
+        "da": "Knap 1 tændt eller slukket",
+        "de": "Taste 1 ein- oder ausgeschaltet",
+        "es": "Botón 1 encendido o apagado",
+        "fr": "Bouton 1 allumé ou éteint",
+        "it": "Pulsante 1 acceso o spento",
+        "no": "Knapp 1 slått på eller av",
+        "sv": "Knapp 1 slås på eller av",
+        "pl": "Przycisk 1 włączony lub wyłączony",
+        "ru": "Кнопка 1 включена или выключена",
+        "ko": "버튼 1 켜짐 또는 꺼짐"
+      },
+      "titleFormatted": {
+        "en": "Button 1 turned on or off",
+        "nl": "Knop 1 aan of uit gezet",
+        "da": "Knap 1 tændt eller slukket",
+        "de": "Taste 1 ein- oder ausgeschaltet",
+        "es": "Botón 1 encendido o apagado",
+        "fr": "Bouton 1 allumé ou éteint",
+        "it": "Pulsante 1 acceso o spento",
+        "no": "Knapp 1 slått på eller av",
+        "sv": "Knapp 1 slås på eller av",
+        "pl": "Przycisk 1 włączony lub wyłączony",
+        "ru": "Кнопка 1 включена или выключена",
+        "ko": "버튼 1 켜짐 또는 꺼짐"
+      },
+      "hint": {
+        "en": "When button 1 is changed from on/off to off/on",
+        "nl": "Wanneer knop 1 van aan/uit naar uit/aan wordt gezet",
+        "da": "Når knap 1 ændres fra tændt/slukket til slukket/tændt",
+        "de": "Wenn Taste 1 von Ein/Aus auf Aus/Ein umgestellt wird",
+        "es": "Cuando el botón 1 se cambia de encendido/apagado a apagado/encendido",
+        "fr": "Lorsque le bouton 1 passe de allumé/éteint à éteint/allumé",
+        "it": "Quando il pulsante 1 passa da acceso/spento a spento/acceso",
+        "no": "Når knapp 1 endres fra på/av til av/på",
+        "sv": "När knapp 1 ändras från på/av till av/på",
+        "pl": "Gdy przycisk 1 zmieni się z włączone/wyłączone na wyłączone/włączone",
+        "ru": "Когда кнопка 1 изменяется с включено/выключено на выключено/включено",
+        "ko": "버튼 1이 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "status",
+          "title": {
+            "en": "Status",
+            "nl": "Status",
+            "da": "Status",
+            "de": "Status",
+            "es": "Estado",
+            "fr": "État",
+            "it": "Stato",
+            "no": "Status",
+            "sv": "Status",
+            "pl": "Status",
+            "ru": "Статус",
+            "ko": "상태"
+          },
+          "example": {
+            "en": "The current status of button 1",
+            "nl": "De huidige status van knop 1",
+            "da": "Knap 1's aktuelle status",
+            "de": "Der aktuelle Status von Taste 1",
+            "es": "El estado actual del botón 1",
+            "fr": "L'état actuel du bouton 1",
+            "it": "Lo stato attuale del pulsante 1",
+            "no": "Gjeldende status for knapp 1",
+            "sv": "Aktuell status för knapp 1",
+            "pl": "Aktualny stan przycisku 1",
+            "ru": "Текущий статус кнопки 1",
+            "ko": "현재 버튼 1 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "room_controller_button2_changed",
+      "title": {
+        "en": "Button 2 turned on or off",
+        "nl": "Knop 2 aan of uit gezet",
+        "da": "Knap 2 tændt eller slukket",
+        "de": "Taste 2 ein- oder ausgeschaltet",
+        "es": "Botón 2 encendido o apagado",
+        "fr": "Bouton 2 allumé ou éteint",
+        "it": "Pulsante 2 acceso o spento",
+        "no": "Knapp 2 slått på eller av",
+        "sv": "Knapp 2 slås på eller av",
+        "pl": "Przycisk 2 włączony lub wyłączony",
+        "ru": "Кнопка 2 включена или выключена",
+        "ko": "버튼 2 켜짐 또는 꺼짐"
+      },
+      "titleFormatted": {
+        "en": "Button 2 turned on or off",
+        "nl": "Knop 2 aan of uit gezet",
+        "da": "Knap 2 tændt eller slukket",
+        "de": "Taste 2 ein- oder ausgeschaltet",
+        "es": "Botón 2 encendido o apagado",
+        "fr": "Bouton 2 allumé ou éteint",
+        "it": "Pulsante 2 acceso o spento",
+        "no": "Knapp 2 slått på eller av",
+        "sv": "Knapp 2 slås på eller av",
+        "pl": "Przycisk 2 włączony lub wyłączony",
+        "ru": "Кнопка 2 включена или выключена",
+        "ko": "버튼 2 켜짐 또는 꺼짐"
+      },
+      "hint": {
+        "en": "When button 2 is changed from on/off to off/on",
+        "nl": "Wanneer knop 2 van aan/uit naar uit/aan wordt gezet",
+        "da": "Når knap 2 ændres fra tændt/slukket til slukket/tændt",
+        "de": "Wenn Taste 2 von Ein/Aus auf Aus/Ein umgestellt wird",
+        "es": "Cuando el botón 2 se cambia de encendido/apagado a apagado/encendido",
+        "fr": "Lorsque le bouton 2 passe de allumé/éteint à éteint/allumé",
+        "it": "Quando il pulsante 2 passa da acceso/spento a spento/acceso",
+        "no": "Når knapp 2 endres fra på/av til av/på",
+        "sv": "När knapp 2 ändras från på/av till av/på",
+        "pl": "Gdy przycisk 2 zmieni się z włączone/wyłączone na wyłączone/włączone",
+        "ru": "Когда кнопка 2 изменяется с включено/выключено на выключено/включено",
+        "ko": "버튼 2가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "status",
+          "title": {
+            "en": "Status",
+            "nl": "Status",
+            "da": "Status",
+            "de": "Status",
+            "es": "Estado",
+            "fr": "État",
+            "it": "Stato",
+            "no": "Status",
+            "sv": "Status",
+            "pl": "Status",
+            "ru": "Статус",
+            "ko": "상태"
+          },
+          "example": {
+            "en": "The current status of button 2",
+            "nl": "De huidige status van knop 2",
+            "da": "Knap 2's aktuelle status",
+            "de": "Der aktuelle Status von Taste 2",
+            "es": "El estado actual del botón 2",
+            "fr": "L'état actuel du bouton 2",
+            "it": "Lo stato attuale del pulsante 2",
+            "no": "Gjeldende status for knapp 2",
+            "sv": "Aktuell status för knapp 2",
+            "pl": "Aktualny stan przycisku 2",
+            "ru": "Текущий статус кнопки 2",
+            "ko": "현재 버튼 2 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "room_controller_temperature_changed",
+      "title": {
+        "en": "Temperature changed",
+        "nl": "Temperatuur veranderd",
+        "da": "Temperatur ændret",
+        "de": "Temperatur geändert",
+        "es": "Temperatura cambiada",
+        "fr": "Température changée",
+        "it": "Temperatura cambiata",
+        "no": "Temperatur endret",
+        "sv": "Temperatur ändrad",
+        "pl": "Temperatura zmieniona",
+        "ru": "Температура изменилась",
+        "ko": "온도 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Temperature changed",
+        "nl": "Temperatuur veranderd",
+        "da": "Temperatur ændret",
+        "de": "Temperatur geändert",
+        "es": "Temperatura cambiada",
+        "fr": "Température changée",
+        "it": "Temperatura cambiata",
+        "no": "Temperatur endret",
+        "sv": "Temperatur ändrad",
+        "pl": "Temperatura zmieniona",
+        "ru": "Температура изменилась",
+        "ko": "온도 변경됨"
+      },
+      "hint": {
+        "en": "When the temperature changes",
+        "nl": "Wanneer de temperatuur verandert",
+        "da": "Når temperaturen ændres",
+        "de": "Wenn sich die Temperatur ändert",
+        "es": "Cuando cambia la temperatura",
+        "fr": "Lorsque la température change",
+        "it": "Quando la temperatura cambia",
+        "no": "Når temperaturen endres",
+        "sv": "När temperaturen ändras",
+        "pl": "Gdy zmienia się temperatura",
+        "ru": "Когда температура изменяется",
+        "ko": "온도가 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "da": "Temperatur",
+            "de": "Temperatur",
+            "es": "Temperatura",
+            "fr": "Température",
+            "it": "Temperatura",
+            "no": "Temperatur",
+            "sv": "Temperatur",
+            "pl": "Temperatura",
+            "ru": "Температура",
+            "ko": "온도"
+          },
+          "example": {
+            "en": "The current temperature in °C",
+            "nl": "De huidige temperatuur in °C",
+            "da": "Den aktuelle temperatur i °C",
+            "de": "Die aktuelle Temperatur in °C",
+            "es": "La temperatura actual en °C",
+            "fr": "La température actuelle en °C",
+            "it": "La temperatura attuale in °C",
+            "no": "Gjeldende temperatur i °C",
+            "sv": "Aktuell temperatur i °C",
+            "pl": "Aktualna temperatura w °C",
+            "ru": "Текущая температура в °C",
+            "ko": "현재 온도(°C)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "room_controller_humidity_changed",
+      "title": {
+        "en": "Humidity changed",
+        "nl": "Luchtvochtigheid veranderd",
+        "da": "Luftfugtighed ændret",
+        "de": "Luftfeuchtigkeit geändert",
+        "es": "Humedad cambiada",
+        "fr": "Humidité changée",
+        "it": "Umidità cambiata",
+        "no": "Luftfuktighet endret",
+        "sv": "Luftfuktighet ändrad",
+        "pl": "Wilgotność zmieniona",
+        "ru": "Влажность изменилась",
+        "ko": "습도 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Humidity changed",
+        "nl": "Luchtvochtigheid veranderd",
+        "da": "Luftfugtighed ændret",
+        "de": "Luftfeuchtigkeit geändert",
+        "es": "Humedad cambiada",
+        "fr": "Humidité changée",
+        "it": "Umidità cambiata",
+        "no": "Luftfuktighet endret",
+        "sv": "Luftfuktighet ändrad",
+        "pl": "Wilgotność zmieniona",
+        "ru": "Влажность изменилась",
+        "ko": "습도 변경됨"
+      },
+      "hint": {
+        "en": "When the humidity changes",
+        "nl": "Wanneer de luchtvochtigheid verandert",
+        "da": "Når luftfugtigheden ændres",
+        "de": "Wenn sich die Luftfeuchtigkeit ändert",
+        "es": "Cuando cambia la humedad",
+        "fr": "Lorsque l'humidité change",
+        "it": "Quando l'umidità cambia",
+        "no": "Når luftfuktigheten endres",
+        "sv": "När luftfuktigheten ändras",
+        "pl": "Gdy zmienia się wilgotność",
+        "ru": "Когда влажность изменяется",
+        "ko": "습도가 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "number",
+          "name": "humidity",
+          "title": {
+            "en": "Humidity",
+            "nl": "Luchtvochtigheid",
+            "da": "Luftfugtighed",
+            "de": "Luftfeuchtigkeit",
+            "es": "Humedad",
+            "fr": "Humidité",
+            "it": "Umidità",
+            "no": "Luftfuktighet",
+            "sv": "Luftfuktighet",
+            "pl": "Wilgotność",
+            "ru": "Влажность",
+            "ko": "습도"
+          },
+          "example": {
+            "en": "The current humidity in %",
+            "nl": "De huidige luchtvochtigheid in %",
+            "da": "Den aktuelle luftfugtighed i %",
+            "de": "Die aktuelle Luftfeuchtigkeit in %",
+            "es": "La humedad actual en %",
+            "fr": "L'humidité actuelle en %",
+            "it": "L'umidità attuale in %",
+            "no": "Gjeldende luftfuktighet i %",
+            "sv": "Aktuell luftfuktighet i %",
+            "pl": "Aktualna wilgotność w %",
+            "ru": "Текущая влажность в %",
+            "ko": "현재 습도(%)"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,7 @@
     "target_temperature",
     "onoff.dhw_mode",
     "target_temperature.dhw",
+    "button.dhw_cylinder_charge",
     "onoff.status_standby",
     "onoff.status_heating",
     "onoff.status_cooling",
@@ -104,6 +105,24 @@
       "step": 1,
       "decimals": 0,
       "uiIndicator": false
+    },
+    "button.dhw_cylinder_charge": {
+      "title": {
+        "en": "Start DHW Cylinder Charge",
+        "nl": "Start Warmwater Boiler Opladen"
+      },
+      "desc": {
+        "en": "Trigger one-time hot water cylinder charging cycle",
+        "nl": "Start eenmalige opwarmcyclus van warmwater boiler"
+      },
+      "uiComponent": "button",
+      "uiQuickAction": true,
+      "getable": false,
+      "setable": true,
+      "insightsTitleTrue": {
+        "en": "DHW cylinder charge triggered",
+        "nl": "Warmwater boiler opladen gestart"
+      }
     },
     "onoff.status_standby": {
       "title": {
@@ -296,10 +315,10 @@
             "en": "DHW Operating Mode",
             "nl": "Warmwater Bedrijfsmodus"
           },
-          "value": "",
+          "value": "11/2/29",
           "hint": {
-            "en": "Group address for DHW on/off control (e.g., 11/1/70)",
-            "nl": "Groepsadres voor warmwater aan/uit regeling (bijv. 11/1/70)"
+            "en": "Group address for DHW auto mode on/off (11/2/29)",
+            "nl": "Groepsadres voor warmwater auto modus aan/uit (11/2/29)"
           }
         },
         {
@@ -309,10 +328,23 @@
             "en": "DHW Target Temperature",
             "nl": "Warmwater Doeltemperatuur"
           },
-          "value": "",
+          "value": "11/2/31",
           "hint": {
-            "en": "Group address for DHW target temperature setpoint (e.g., 11/1/71)",
-            "nl": "Groepsadres voor warmwater doeltemperatuur setpoint (bijv. 11/1/71)"
+            "en": "Group address for DHW target temperature setpoint (11/2/31)",
+            "nl": "Groepsadres voor warmwater doeltemperatuur setpoint (11/2/31)"
+          }
+        },
+        {
+          "id": "ga_dhw_cylinder_charge",
+          "type": "text",
+          "label": {
+            "en": "DHW 1x Cylinder Charge",
+            "nl": "Warmwater 1x Boiler Opladen"
+          },
+          "value": "11/2/32",
+          "hint": {
+            "en": "Group address for one-time DHW cylinder charge trigger (11/2/32)",
+            "nl": "Groepsadres voor eenmalige warmwater boiler opladen trigger (11/2/32)"
           }
         }
       ]
@@ -481,8 +513,8 @@
           },
           "value": "",
           "hint": {
-            "en": "Group address for DHW power consumption in Watts (e.g., 11/3/51)",
-            "nl": "Groepsadres voor warmwater stroomverbruik in Watt (bijv. 11/3/51)"
+            "en": "Group address for DHW power consumption in Watts (optional - not available in your setup)",
+            "nl": "Groepsadres voor warmwater stroomverbruik in Watt (optioneel - niet beschikbaar in jouw setup)"
           }
         },
         {
@@ -494,8 +526,8 @@
           },
           "value": "",
           "hint": {
-            "en": "Group address for heating generator power in Watts (e.g., 11/3/52)",
-            "nl": "Groepsadres voor verwarmingsgenerator vermogen in Watt (bijv. 11/3/52)"
+            "en": "Group address for heating generator power in Watts (optional - not available in your setup)",
+            "nl": "Groepsadres voor verwarmingsgenerator vermogen in Watt (optioneel - niet beschikbaar in jouw setup)"
           }
         },
         {
@@ -505,10 +537,10 @@
             "en": "Environmental Yield (Total)",
             "nl": "Milieu Opbrengst (Totaal)"
           },
-          "value": "",
+          "value": "11/2/36",
           "hint": {
-            "en": "Group address for environmental yield total in Wh (e.g., 11/2/36) - DPT13",
-            "nl": "Groepsadres voor milieu opbrengst totaal in Wh (bijv. 11/2/36) - DPT13"
+            "en": "Group address for environmental yield total in kWh (11/2/36) - DPT13",
+            "nl": "Groepsadres voor milieu opbrengst totaal in kWh (11/2/36) - DPT13"
           }
         },
         {
@@ -518,10 +550,10 @@
             "en": "DHW Total Energy Consumption",
             "nl": "Warmwater Totaal Energieverbruik"
           },
-          "value": "",
+          "value": "11/2/38",
           "hint": {
-            "en": "Group address for DHW total energy in Wh (e.g., 11/2/38) - DPT13",
-            "nl": "Groepsadres voor warmwater totaal energie in Wh (bijv. 11/2/38) - DPT13"
+            "en": "Group address for DHW total energy in kWh (11/2/38) - DPT13",
+            "nl": "Groepsadres voor warmwater totaal energie in kWh (11/2/38) - DPT13"
           }
         },
         {
@@ -531,10 +563,10 @@
             "en": "Heating Total Energy Consumption",
             "nl": "Verwarming Totaal Energieverbruik"
           },
-          "value": "",
+          "value": "11/2/37",
           "hint": {
-            "en": "Group address for heating total energy in Wh (e.g., 11/2/37) - DPT13",
-            "nl": "Groepsadres voor verwarming totaal energie in Wh (bijv. 11/2/37) - DPT13"
+            "en": "Group address for heating total energy in kWh (11/2/37) - DPT13",
+            "nl": "Groepsadres voor verwarming totaal energie in kWh (11/2/37) - DPT13"
           }
         }
       ]
